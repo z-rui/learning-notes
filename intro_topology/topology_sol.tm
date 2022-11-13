@@ -373,7 +373,7 @@
 
       <item>Let <math|x\<in\><big|cup><rsub|\<alpha\>\<in\>I><around*|(|A<rsub|\<alpha\>>\<cup\>B<rsub|\<alpha\>>|)>>.
       Then there exists <math|\<beta\>\<in\>I> such that
-      <math|x\<in\>A<rsub|\<beta\>>\<cup\>B<rsub|\<beta\>>>, which imples
+      <math|x\<in\>A<rsub|\<beta\>>\<cup\>B<rsub|\<beta\>>>, which implies
       <math|x\<in\>A<rsub|\<beta\>>> or <math|x\<in\>B<rsub|\<beta\>>>. If
       <math|x\<in\>A<rsub|\<beta\>>>, then
       <math|x\<in\><big|cup><rsub|a\<in\>I>A<rsub|a>>; if
@@ -625,7 +625,7 @@
       In this case, <math|<around*|(|x,y|)>\<in\>A\<times\>\<complement\><around*|(|Y|)>>.
     </enumerate-numeric>
 
-    [It is not possble that both (1) and (2) are false, since that would
+    [It is not possible that both (1) and (2) are false, since that would
     imply <math|<around*|(|x,y|)>\<in\>X\<times\>Y>.] In any case, we have
     <math|<around*|(|x,y|)>\<in\>\<complement\><around*|(|X|)>\<times\>B> or
     <math|<around*|(|x,y|)>\<in\>A\<times\>\<complement\><around*|(|Y|)>>. We
@@ -725,7 +725,7 @@
     \;
 
     <\enumerate-alpha>
-      <item>Let <math|x\<in\>X>. By defintion of image,
+      <item>Let <math|x\<in\>X>. By definition of image,
       <math|f<around*|(|X|)>=<around*|{|f<around*|(|x|)>\<of\>x\<in\>X|}>>.
       Therefore, <math|f<around*|(|x|)>\<in\>f<around*|(|X|)>>. By definition
       of inverse image, <math|f<rsup|-1><around*|(|f<around*|(|X|)>|)>=<around*|{|x\<in\>A\<of\>f<around*|(|x|)>\<in\>f<around*|(|X|)>|}>>.
@@ -1330,7 +1330,7 @@
     </equation*>
 
     where <math|\<alpha\>=\<pi\><around*|(|f|)>>. [The remaining argument has
-    an indentical structure to that in Exercise<nbsp>2.] This is a
+    an identical structure to that in Exercise<nbsp>2.] This is a
     well-defined function, since for any <math|\<alpha\>\<in\>E/R>, there
     exists some function <math|f\<in\>\<alpha\>>. If
     <math|f,g\<in\>\<alpha\>>, then <math|f<around*|(|b|)>=g<around*|(|b|)>>.
@@ -1348,7 +1348,7 @@
     where <math|\<alpha\><rsub|1>,\<alpha\><rsub|2>\<in\>E/R>. Then there
     exists <math|f\<in\>\<alpha\><rsub|1>> and
     <math|g\<in\>\<alpha\><rsub|2>> such that
-    <math|f<around*|(|b|)>=g<around*|(|b|)>>. By definition of equivalance
+    <math|f<around*|(|b|)>=g<around*|(|b|)>>. By definition of equivalence
     class, we have <math|g\<in\>\<alpha\><rsub|1>>. Therefore
     <math|\<alpha\><rsub|1>\<cap\>\<alpha\><rsub|2>\<neq\>\<varnothing\>>,
     and consequently <math|\<alpha\><rsub|1>=a<rsub|2>>. We conclude that
