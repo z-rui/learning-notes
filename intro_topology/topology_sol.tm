@@ -1824,15 +1824,12 @@
     so that for each <math|\<gamma\>\<in\>J>, <math|y<around*|(|\<gamma\>|)>>
     is the restriction of <math|x> to <math|I<rsub|\<gamma\>>>. It follows
     that for all <math|\<alpha\>\<in\>I>, we have
-    <math|y<around*|(|\<tau\><around*|(|\<alpha\>|)>|)><around*|(|\<alpha\>|)>=x<around*|(|\<alpha\>|)>>.
-    Then, it can be verified that
 
     <\equation*>
-      F<around*|(|y|)><around*|(|\<alpha\>|)>=y<around*|(|\<tau\><around*|(|\<alpha\>|)>|)><around*|(|\<alpha\>|)>=x<around*|(|\<alpha\>|)>
+      F<around*|(|y|)><around*|(|\<alpha\>|)>=y<around*|(|\<tau\><around*|(|\<alpha\>|)>|)><around*|(|\<alpha\>|)>=x<around*|(|\<alpha\>|)>.
     </equation*>
 
-    for all <math|\<alpha\>\<in\>I>. Therefore, <math|F<around*|(|y|)>=x>. We
-    conclude that <math|F> is onto.
+    Therefore, <math|F<around*|(|y|)>=x>. We conclude that <math|F> is onto.
 
     Let <math|y,y<rprime|'>\<in\><big|prod><rsub|\<gamma\>\<in\>J>Y<rsub|\<gamma\>>>,
     and suppose that <math|F<around*|(|y|)>=F<around*|(|y<rprime|'>|)>>. Let
