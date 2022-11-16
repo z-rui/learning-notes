@@ -16,8 +16,9 @@
   </hide-preamble>
 
   <doc-data|<\doc-title>
-    Solutions to Exercises in Introductions to Topology
-  </doc-title>|<doc-author|<author-data|<author-name|ZR>>>>
+    Solutions to Exercises
+  </doc-title>|<doc-date|<date>>|<doc-author|<author-data|<author-name|ZR>>>|<doc-subtitle|for
+  Introductions to Topology by Bert Mendelson>>
 
   <\table-of-contents|toc>
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|1<space|2spc>Theory
@@ -75,6 +76,10 @@
     <with|par-left|1tab|2.2<space|2spc>Metric spaces
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-14>>
+
+    <with|par-left|1tab|2.3<space|2spc>Continuity
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-15>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -2282,11 +2287,271 @@
 
     is the set of multiples of <math|9>.
   </solution*>
+
+  <subsection|Continuity>
+
+  <\exercise>
+    Let <math|X> be the set of continuous functions
+    <math|f:<around*|[|a,b|]>\<rightarrow\>\<bbb-R\>>. Let
+    <math|d<rsup|\<ast\>>> be the distance function on <math|X> defined by
+
+    <\equation*>
+      d<rsup|\<ast\>><around*|(|f,g|)>=<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t,
+    </equation*>
+
+    for <math|f,g\<in\>X>. For each <math|f\<in\>X>, set
+
+    <\equation*>
+      I<around*|(|f|)>=<big|int><rsub|a><rsup|b>f<around*|(|t|)>*\<mathd\>t.
+    </equation*>
+
+    Prove that the function <math|I:<around*|(|X,d<rsup|\<ast\>>|)>\<rightarrow\><around*|(|\<bbb-R\>,d|)>>
+    is continuous.
+  </exercise>
+
+  <\solution*>
+    We will use the following inequality from calculus:
+
+    <\equation*>
+      <big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t\<geqslant\><around*|\||<big|int><rsub|a><rsup|b><around*|[|f<around*|(|t|)>-d<around*|(|t|)>|]>*\<mathd\>t|\|>.
+    </equation*>
+
+    Suppose <math|g\<in\>X>. For given <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=\<varepsilon\>\<gtr\>0>. Then, whenever
+    <math|d<rsup|\<ast\>><around*|(|f,g|)>\<less\>\<delta\>>, we have
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<around*|(|I<around*|(|f|)>,I<around*|(|g|)>|)>>|<cell|=>|<cell|<around*|\||<big|int><rsub|a><rsup|b>f<around*|(|t|)>*\<mathd\>t-<big|int><rsub|a><rsup|b>g<around*|(|t|)>*\<mathd\>t|\|>>>|<row|<cell|>|<cell|=>|<cell|<around*|\||<big|int><rsub|a><rsup|b><around*|[|f<around*|(|t|)>-d<around*|(|t|)>|]>*\<mathd\>t|\|>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t>>|<row|<cell|>|<cell|=>|<cell|d<rsup|\<ast\>><around*|(|f,g|)>>>|<row|<cell|>|<cell|=>|<cell|\<delta\>>>>>
+    </eqnarray*>
+
+    and thus <math|d<around*|(|I<around*|(|f|)>,I<around*|(|g|)>|)>\<leqslant\>\<delta\>=\<varepsilon\>>.
+    We conclude that <math|I> is continuous.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X<rsub|i><rsup|\<ast\>>,d<rsub|i>|)>>,
+    <math|<around*|(|Y<rsub|i><rsup|\<ast\>>,d<rsub|i><rprime|'>|)>>,
+    <math|i=1,\<ldots\>,n> be metric spaces. Let
+    <math|f<rsub|i>:X<rsub|i>\<rightarrow\>Y<rsub|i>>, <math|i=1,\<ldots\>,n>
+    be continuous functions. Let
+
+    <\equation*>
+      X=<big|prod><rsub|i=1><rsup|n>X<rsub|i><space|1em><math-and|<text|and>><space|1em>Y=<big|prod><rsub|i=1><rsup|n>Y<rsub|i>
+    </equation*>
+
+    and convert <math|X> and <math|Y> into metric spaces in the standard
+    manner.<\footnote>
+      Refer to Theorem 2.3.
+    </footnote> Define the function <math|F:X\<rightarrow\>Y> by
+
+    <\equation*>
+      F<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>=<around*|(|f<rsub|1><around*|(|x<rsub|1>|)>,f<rsub|2><around*|(|x<rsub|2>|)>,\<ldots\>,f<rsub|n><around*|(|x<rsub|n>|)>|)>.
+    </equation*>
+
+    Prove that <math|F> is continuous.
+  </exercise>
+
+  <\solution*>
+    The distance function for <math|X> is
+
+    <\equation*>
+      d<around*|(|<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>,<around*|(|x<rsub|1><rprime|'>,x<rsub|2><rprime|'>,\<ldots\>,x<rsub|n><rprime|'>|)>|)>=max<around*|{|d<rsub|i><around*|(|x<rsub|i>,x<rsub|i><rprime|'>|)>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>,
+    </equation*>
+
+    and similarly, for <math|Y>,
+
+    <\equation*>
+      d<rprime|'><around*|(|<around*|(|y<rsub|1>,y<rsub|2>,\<ldots\>,y<rsub|n>|)>,<around*|(|y<rsub|1><rprime|'>,y<rsub|2><rprime|'>,\<ldots\>,y<rsub|n><rprime|'>|)>|)>=max<around*|{|d<rsub|i><rprime|'><around*|(|y<rsub|i>,y<rsub|i><rprime|'>|)>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>.
+    </equation*>
+
+    Let <math|a=<around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|n>|)>\<in\>X>.
+    For given <math|\<varepsilon\>\<gtr\>0>, for each
+    <math|i=1,2,\<ldots\>,n>, because <math|f<rsub|i>> is continuous, there
+    exists <math|\<delta\><rsub|i>> such that
+    <math|d<rsub|i><around*|(|x<rsub|i>,a<rsub|i>|)>\<less\>\<delta\><rsub|i>>
+    implies <math|d<rsub|i><rprime|'><around*|(|f<rsub|i><around*|(|x<rsub|i>|)>,f<rsub|i><around*|(|a<rsub|i>|)>|)>\<less\>\<varepsilon\>>.
+    Choose <math|\<delta\>=min<around*|{|\<delta\><rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>>.
+    Then whenever <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+
+    <\equation*>
+      max<around*|{|d<rsub|i><around*|(|x<rsub|i>,x<rsub|i><rprime|'>|)>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>\<less\>\<delta\>\<leqslant\>\<delta\><rsub|i>,
+    </equation*>
+
+    which implies that <math|d<rsub|i><around*|(|x<rsub|i>,x<rsub|i><rprime|'>|)>\<less\>\<delta\><rsub|i>>
+    for all <math|1\<leqslant\>i\<leqslant\>n>. Therefore, we have
+    <math|d<rsub|i><rprime|'><around*|(|f<rsub|i><around*|(|x<rsub|i>|)>,f<rsub|i><around*|(|a<rsub|i>|)>|)>\<less\>\<varepsilon\>>
+    for all <math|1\<leqslant\>i\<leqslant\>n>. It follows that
+
+    <\equation*>
+      max<around*|{|d<rsub|i><rprime|'><around*|(|f<rsub|i><around*|(|x<rsub|i>|)>,f<rsub|i><around*|(|a<rsub|i>|)>|)>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>\<less\>\<varepsilon\>,
+    </equation*>
+
+    or equivalently, <math|d<rprime|'><around*|(|F<around*|(|x|)>,F<around*|(|a|)>|)>\<less\>\<varepsilon\>>.
+
+    We just proved that for given <math|\<varepsilon\>\<gtr\>0>, there exists
+    a <math|\<delta\>\<gtr\>0> such that whenever
+    <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+    <math|d<rprime|'><around*|(|F<around*|(|x|)>,F<around*|(|a|)>|)>\<less\>\<varepsilon\>>.
+    We conclude that <math|F> is continuous.
+  </solution*>
+
+  <\exercise>
+    Define the function <math|f:\<bbb-R\><rsup|2>\<rightarrow\>\<bbb-R\>> by
+    <math|f<around*|(|x<rsub|1>,x<rsub|2>|)>=x<rsub|1>+x<rsub|2>>. Prove that
+    <math|f> is continuous, where the distance function on
+    <math|\<bbb-R\><rsup|2>> is either <math|d> or <math|d<rprime|'>>.
+  </exercise>
+
+  <\solution*>
+    First, consider <math|<around*|(|\<bbb-R\><rsup|2>,d|)>>. Let
+    <math|a=<around*|(|a<rsub|1>,a<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>. For
+    given <math|\<varepsilon\>>, choose <math|\<delta\>=\<varepsilon\>/2>.
+    Then, for <math|x=<around*|(|x<rsub|1>,x<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>,
+    whenever
+
+    <\equation*>
+      d<around*|(|x,a|)>=max<around*|{|<around*|\||x<rsub|1>-a<rsub|1>|\|>,<around*|\||x<rsub|2>-a<rsub|2>|\|>|}>\<less\>\<delta\>,
+    </equation*>
+
+    we have <math|-\<delta\>\<less\>x<rsub|1>-a<rsub|1>\<less\>\<delta\>> and
+    <math|-\<delta\>\<less\>x<rsub|2>-a<rsub|2>\<less\>\<delta\>>. Adding the
+    inequalities, we get
+
+    <\equation*>
+      -2*\<delta\>\<less\><around*|(|x<rsub|1>+x<rsub|2>|)>-<around*|(|a<rsub|1>+a<rsub|2>|)>\<less\>2*\<delta\>,
+    </equation*>
+
+    which implies
+
+    <\equation*>
+      d<around*|(|f<around*|(|x|)>,f<around*|(|a|)>|)>=<around*|\||<around*|(|x<rsub|1>+x<rsub|2>|)>-<around*|(|a<rsub|1>+a<rsub|2>|)>|\|>\<less\>2*\<delta\>=\<varepsilon\>.
+    </equation*>
+
+    We have proved that for given <math|\<varepsilon\>>, there exists a
+    <math|\<delta\>\<gtr\>0> such that whenever
+    <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+    <math|d<around*|(|f<around*|(|x|)>,f<around*|(|a|)>|)>\<less\>\<varepsilon\>>.
+    We conclude that <math|f> is continuous.
+
+    Next, consider <math|<around*|(|\<bbb-R\><rsup|2>,d<rprime|'>|)>>. Let
+    <math|a=<around*|(|a<rsub|1>,a<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>. For
+    given <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=<sqrt|\<varepsilon\>/2>\<gtr\>0>. Then, for
+    <math|x=<around*|(|x<rsub|1>,x<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>,
+    whenever
+
+    <\equation*>
+      d<rprime|'><around*|(|x,a|)>=<sqrt|<around*|(|x<rsub|1>-a<rsub|1>|)><rsup|2>+<around*|(|x<rsub|2>-a<rsub|2>|)><rsup|2>>\<less\>\<delta\>,
+    </equation*>
+
+    we have <math|<around*|(|x<rsub|1>-a<rsub|1>|)><rsup|2>+<around*|(|x<rsub|2>-a<rsub|2>|)><rsup|2>\<less\>\<delta\><rsup|2>>.
+    It follows that
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<rprime|'><around*|(|f<around*|(|x|)>,f<around*|(|a|)>|)><rsup|2>>|<cell|=>|<cell|<around*|[|<around*|(|x<rsub|1>+x<rsub|2>|)>-<around*|(|a<rsub|1>+a<rsub|2>|)>|]><rsup|2>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|<around*|[|<around*|(|x<rsub|1>+x<rsub|2>|)>-<around*|(|a<rsub|1>+a<rsub|2>|)>|]><rsup|2>+<around*|[|<around*|(|x<rsub|1>+x<rsub|2>|)>+<around*|(|a<rsub|1>+a<rsub|2>|)>|]><rsup|2>>>|<row|<cell|>|<cell|=>|<cell|2*<around*|[|<around*|(|x<rsub|1>+x<rsub|2>|)><rsup|2>+<around*|(|a<rsub|1>+a<rsub|2>|)><rsup|2>|]>>>|<row|<cell|>|<cell|=>|<cell|2*\<delta\><rsup|2>,>>>>
+    </eqnarray*>
+
+    and consequently <math|d<rprime|'><around*|(|f<around*|(|x|)>,f<around*|(|a|)>|)>\<leqslant\><sqrt|2*\<delta\><rsup|2>>=\<varepsilon\>>.
+    We conclude that <math|f> is continuous.
+  </solution*>
+
+  <\exercise>
+    Define functions <math|g,h,k,m> as follows:
+    <math|g:\<bbb-R\><rsup|2>\<rightarrow\>\<bbb-R\><rsup|2>\<times\>\<bbb-R\><rsup|2>>
+    by <math|g<around*|(|x,y|)>=<around*|(|<around*|(|x,y|)>,<around*|(|x,y|)>|)>>;
+    <math|h:\<bbb-R\><rsup|2>\<times\>\<bbb-R\><rsup|2>\<rightarrow\>\<bbb-R\>\<times\>\<bbb-R\>>
+    by <math|h<around*|(|<around*|(|a,b|)>,<around*|(|c,d|)>|)>=<around*|(|a+b,c-d|)>>;
+    <math|k:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-R\>\<times\>\<bbb-R\>>
+    by <math|k<around*|(|u,v|)>=<around*|(|u<rsup|2>,v<rsup|2>|)>>;
+    <math|m:\<bbb-R\>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-R\>> by
+    <math|m<around*|(|x,y|)>=<frac|1|4><around*|(|x-y|)>>. Prove that all
+    these functions are continuous and that
+    <math|x*y=m*k*h*g<around*|(|x,y|)>>.
+  </exercise>
+
+  <\solution*>
+    (Part 1.) Let <math|a\<in\>\<bbb-R\><rsup|2>>. For given
+    <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=\<varepsilon\>\<gtr\>0>. Then, for
+    <math|x\<in\>\<bbb-R\><rsup|2>>, whenever
+    <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+
+    <\equation*>
+      d<around*|(|g<around*|(|x|)>,g<around*|(|a|)>|)>=min<around*|{|d<around*|(|x,a|)>,d<around*|(|x,a|)>|}>=d<around*|(|x,a|)>\<less\>\<delta\>=\<varepsilon\>.
+    </equation*>
+
+    Therefore, <math|g> is continuous.
+
+    (Part 2.) Let <math|f<rsub|1>,f<rsub|2>:\<bbb-R\><rsup|2>\<rightarrow\>\<bbb-R\>>
+    be defined by <math|f<rsub|1><around*|(|x,y|)>=x+y> and
+    <math|f<rsub|2><around*|(|x,y|)>=x-y>. From Exercise<nbsp>3, we know that
+    <math|f<rsub|1>> is continuous. Following a similar argument, we can
+    prove that <math|f<rsub|2>> is also continuous. Now,
+    <math|h<around*|(|x<rsub|1>,x<rsub|2>|)>=<around*|(|f<rsub|1><around*|(|x<rsub|1>|)>,f<rsub|2><around*|(|x<rsub|2>|)>|)>>.
+    Using the Exercise<nbsp>2, we conclude that <math|h> is continuous.
+
+    (Part 3.) Let <math|f<rsub|3>:\<bbb-R\>\<rightarrow\>\<bbb-R\>> be
+    defined by <math|f<rsub|3><around*|(|x|)>=x<rsup|2>>. Let
+    <math|a\<in\>\<bbb-R\>>. For given <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=min<around*|{|1,<frac|\<varepsilon\>|1+2*<around*|\||a|\|>>|}>>.
+    Then, for <math|x\<in\>\<bbb-R\>>, whenever
+    <math|d<around*|(|x,a|)>=<around*|\||x-a|\|>\<less\>\<delta\>\<leqslant\>1>,
+    we have
+
+    <\equation*>
+      <around*|\||x+a|\|>=<around*|\||<around*|(|x-a|)>+2*a|\|>\<leqslant\><around*|\||x-a|\|>+<around*|\||2*a|\|>\<less\>1+2*<around*|\||a|\|>.
+    </equation*>
+
+    It follows that
+
+    <\equation*>
+      d<around*|(|f<rsub|3><around*|(|x|)>,f<rsub|3><around*|(|a|)>|)>=<around*|\||x<rsup|2>-a<rsup|2>|\|>=<around*|\||x-a|\|>*<around*|\||x+a|\|>\<less\>\<delta\>*<around*|(|1+2*<around*|\||a|\|>|)>\<leqslant\>\<varepsilon\>.
+    </equation*>
+
+    We conclude that <math|f<rsub|3>> is continuous. Now,
+    <math|k<around*|(|u,v|)>=<around*|(|f<rsub|3><around*|(|u|)>,f<rsub|3><around*|(|v|)>|)>>.
+    Using Exercise<nbsp>2, we conclude that <math|k> is continuous.
+
+    (Part 4.) Let <math|b=<around*|(|b<rsub|1>,b<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>.
+    For given <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=2*\<varepsilon\>>. Then, for
+    <math|x=<around*|(|x<rsub|1>,x<rsub|2>|)>\<in\>\<bbb-R\><rsup|2>>,
+    whenever <math|d<around*|(|x,b|)>\<less\>\<delta\>>, we have
+
+    <\equation*>
+      max<around*|{|<around*|\||x<rsub|1>-b<rsub|1>|\|>,<around*|\||x<rsub|2>-b<rsub|2>|\|>|}>\<less\>\<delta\>,
+    </equation*>
+
+    which implies that <math|-\<delta\>\<less\>x<rsub|1>-b<rsub|1>\<less\>\<delta\>>
+    and <math|-\<delta\>\<less\>b<rsub|2>-x<rsub|2>\<less\>\<delta\>>. Adding
+    the two inequalities, we get
+
+    <\equation*>
+      -2*\<delta\>\<less\><around*|(|x<rsub|1>-x<rsub|2>|)>-<around*|(|b<rsub|1>-b<rsub|2>|)>\<less\>2*\<delta\>,
+    </equation*>
+
+    or equivalently, <math|<around*|\||<around*|(|x<rsub|1>-x<rsub|2>|)>-<around*|(|b<rsub|1>-b<rsub|2>|)>|\|>\<less\>2*\<delta\>>.
+    Therefore
+
+    <\equation*>
+      d<around*|(|m<around*|(|x|)>,m<around*|(|b|)>|)>=<around*|\||<frac|1|4><around*|(|x<rsub|1>-x<rsub|2>|)>-<frac|1|4><around*|(|b<rsub|1>-b<rsub|2>|)>|\|>\<less\><frac|1|4>\<times\>2*\<delta\>=<frac|\<delta\>|2>=\<varepsilon\>.
+    </equation*>
+
+    We conclude that <math|m> is continuous.
+
+    (Part 5.) Let <math|x,y\<in\>\<bbb-R\>>. We can carry out the
+    calculation:
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|<around*|(|m*k*h*g|)><around*|(|x,y|)>>|<cell|=>|<cell|m<around*|(|k<around*|(|h<around*|(|g<around*|(|x,y|)>|)>|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|k<around*|(|h<around*|(|<around*|(|x,y|)>,<around*|(|x,y|)>|)>|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|k<around*|(|x+y,x-y|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|<around*|(|x+y|)><rsup|2>,<around*|(|x-y|)><rsup|2>|)>>>|<row|<cell|>|<cell|=>|<cell|<frac|1|4><around*|[|<around*|(|x+y|)><rsup|2>-<around*|(|x-y|)><rsup|2>|]>>>|<row|<cell|>|<cell|=>|<cell|x*y.>>>>
+    </eqnarray*>
+  </solution*>
 </body>
 
 <\initial>
   <\collection>
     <associate|info-flag|minimal>
+    <associate|locus-color|preserve>
     <associate|page-height|auto>
     <associate|page-medium|paper>
     <associate|page-screen-margin|true>
@@ -2298,6 +2563,7 @@
     <associate|src-compact|normal>
     <associate|src-special|normal>
     <associate|src-style|angular>
+    <associate|visited-color|preserve>
   </collection>
 </initial>
 
@@ -2309,6 +2575,7 @@
     <associate|auto-12|<tuple|2|19>>
     <associate|auto-13|<tuple|2.1|19>>
     <associate|auto-14|<tuple|2.2|19>>
+    <associate|auto-15|<tuple|2.3|23>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -2319,8 +2586,10 @@
     <associate|auto-9|<tuple|1.8|13>>
     <associate|footnote-1|<tuple|1|16>>
     <associate|footnote-2|<tuple|2|17>>
+    <associate|footnote-3|<tuple|3|24>>
     <associate|footnr-1|<tuple|1|16>>
     <associate|footnr-2|<tuple|2|17>>
+    <associate|footnr-3|<tuple|3|24>>
   </collection>
 </references>
 
@@ -2382,6 +2651,10 @@
       <with|par-left|<quote|1tab>|2.2<space|2spc>Metric spaces
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-14>>
+
+      <with|par-left|<quote|1tab>|2.3<space|2spc>Continuity
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15>>
     </associate>
   </collection>
 </auxiliary>
