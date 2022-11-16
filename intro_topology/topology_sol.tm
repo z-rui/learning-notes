@@ -16,11 +16,7 @@
   </hide-preamble>
 
   <doc-data|<\doc-title>
-    Solutions to Exercises in\ 
-
-    Introductions to Topology\ 
-
-    by Bert Mendelson
+    Solutions to Exercises in Introductions to Topology
   </doc-title>|<doc-author|<author-data|<author-name|ZR>>>>
 
   <\table-of-contents|toc>
@@ -67,6 +63,18 @@
     <with|par-left|1tab|1.10<space|2spc>Arbitrary products
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-11>>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>Metric
+    Spaces> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-12><vspace|0.5fn>
+
+    <with|par-left|1tab|2.1<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-13>>
+
+    <with|par-left|1tab|2.2<space|2spc>Metric spaces
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-14>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -1069,7 +1077,7 @@
     is a uniquely defined subset
 
     <\equation*>
-      E<around*|(|\<chi\>|)>=<around*|{|x\<in\>A\|\<chi\><around*|(|x|)>=1|}>.
+      E<around*|(|\<chi\>|)>=<around*|{|x\<in\>A\<barsuchthat\>\<chi\><around*|(|x|)>=1|}>.
     </equation*>
 
     Conversely, any subset <math|E\<subset\>A> can be obtained by such a
@@ -1295,7 +1303,7 @@
     differ by only a constant. Thus,
 
     <\equation*>
-      \<pi\><around*|(|f|)>=<around*|{|g\<in\>X\|g<around*|(|x|)>=f<around*|(|x|)>+C,C\<in\>\<bbb-R\>|}>.
+      \<pi\><around*|(|f|)>=<around*|{|g\<in\>X\<barsuchthat\>g<around*|(|x|)>=f<around*|(|x|)>+C,C\<in\>\<bbb-R\>|}>.
     </equation*>
   </solution*>
 
@@ -1651,7 +1659,7 @@
     <math|<around*|{|0,1|}>=A>, thus a member of <math|A<rsup|I>>.
     Conversely, any function <math|\<chi\>\<in\>A<rsup|I>> is a
     characteristic function, since we can built a subset of <math|I>, namely
-    <math|I<rsub|\<chi\>>=<around*|{|x\<in\>I\|\<chi\><around*|(|x|)>=1|}>>.
+    <math|I<rsub|\<chi\>>=<around*|{|x\<in\>I\<barsuchthat\>\<chi\><around*|(|x|)>=1|}>>.
     Therefore, <math|A<rsup|I>> is the set of all characteristic functions
     defined on <math|I>.
   </solution*>
@@ -1880,6 +1888,400 @@
     <math|j<around*|(|k<around*|(|i|)>|)>\<less\>j<around*|(|k<around*|(|i+1|)>|)>>,
     or equivalently <math|<around*|(|j*k|)><around*|(|i|)>\<less\><around*|(|j*k|)><around*|(|i+1|)>>.
   </solution*>
+
+  <section|Metric Spaces>
+
+  <subsection|Introduction>
+
+  <subsection|Metric spaces>
+
+  <\exercise>
+    Let <math|<around*|(|X,d|)>> be a metric space. Let <math|k> be a
+    positive real number and set <math|d<rsub|k><around*|(|x,y|)>=k\<cdot\>d<around*|(|x,y|)>>.
+    Prove that <math|<around*|(|X,d<rsub|k>|)>> is a metric space.
+  </exercise>
+
+  <\solution*>
+    From <math|<around*|(|X,d|)>> being a metric space, we know for all
+    <math|x,y,z\<in\>X>, we have
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<around*|(|x,y|)>>|<cell|\<geqslant\>>|<cell|0,>>|<row|<cell|d<around*|(|x,y|)>>|<cell|=>|<cell|0<math-relation|<text|
+      if and only if >>x=y,>>|<row|<cell|d<around*|(|x,y|)>>|<cell|=>|<cell|d<around*|(|y,x|)>,>>|<row|<cell|d<around*|(|x,z|)>>|<cell|\<leqslant\>>|<cell|d<around*|(|x,y|)>+d<around*|(|y,z|)>.>>>>
+    </eqnarray*>
+
+    Multiply both sides of each equation by <math|k>, we get similar
+    equations for <math|d<rsub|k>>. Thus, <math|<around*|(|X,d<rsub|k>|)>> is
+    a metric space.
+  </solution*>
+
+  <\exercise>
+    Prove that <math|<around|(|\<bbb-R\><rsup|n>,d<rprime|''>|)>> is a metric
+    space, where the function <math|d<rprime|''>> is defined by the
+    correspondence
+
+    <\equation*>
+      d<rprime|''><around*|(|x,y|)>=<big|sum><rsub|i=1><rsup|n><around*|\||x<rsub|i>-y<rsub|i>|\|>,
+    </equation*>
+
+    for <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>,y=<around*|(|y<rsub|1>,y<rsub|2>,\<ldots\>,y<rsub|n>|)>\<in\>\<bbb-R\><rsup|n>>.
+    In <math|<around*|(|\<bbb-R\><rsup|2>,d<rprime|''>|)>>, determine the
+    shape and position of the set of points <math|x> such that
+    <math|d<rprime|''><around*|(|x,a|)>\<leqslant\>1> for a point
+    <math|a\<in\>\<bbb-R\><rsup|2>>.
+  </exercise>
+
+  <\solution*>
+    From the property of absolute value, we have
+    <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>\<geqslant\>0>. Because the sum
+    of non-negative integers is non-negative, we get
+    <math|d<rprime|''><around*|(|x,y|)>=<big|sum><rsub|i=1><rsup|n><around*|\||x<rsub|i>-y<rsub|i>|\|>\<geqslant\>0>.
+
+    If <math|x=y>, then obviously <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>=0>,
+    and consequently <math|d<rprime|''><around*|(|x,y|)>=0>. Conversely,
+    suppose <math|d<rprime|''><around*|(|x,y|)>=0>, we have
+    <math|<big|sum><rsub|i=1><rsup|n><around*|\||x<rsub|i>-y<rsub|i>|\|>=0>.
+    If for any <math|i>, <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>\<neq\>0>,
+    then <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>\<gtr\>0>, and the sum
+    cannot be zero. Therefore, for all <math|i=1,2,\<ldots\>,n>, we must have
+    <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>=0>, which implies
+    <math|x<rsub|i>=y<rsub|i>>. It follows that <math|x=y>. We conclude that
+    <math|d<rprime|''><around*|(|x,y|)>=0> if and only if <math|x=y>.
+
+    Because <math|<around*|\||x<rsub|i>-y<rsub|i>|\|>=<around*|\||y<rsub|i>-x<rsub|i>|\|>>,
+    it's easy to see <math|d<rprime|''><around*|(|x,y|)>=d<rprime|''><around*|(|y,x|)>>.
+
+    To prove <math|d<rprime|''><around*|(|x,z|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,z|)>>,
+    it suffices to prove that <math|<around*|\||x<rsub|i>-z<rsub|i>|\|>\<leqslant\><around*|\||x<rsub|i>-y<rsub|i>|\|>+<around*|\||y<rsub|i>-z<rsub|i>|\|>>.
+    This inequality can be proved using the <dfn|triangle inequality> of real
+    numbers, <math|<around*|\||a+b|\|>\<leqslant\><around*|\||a|\|>+<around*|\||b|\|>>,
+    where we substitute <math|a=x<rsub|i>-y<rsub|i>> and
+    <math|b=y<rsub|i>-z<rsub|i>>.
+
+    In <math|\<bbb-R\><rsup|2>>, <math|d<rprime|''><around*|(|x,a|)>\<leqslant\>1>
+    represents a square centered at <math|a>, with diagonals parallel to the
+    <math|x>- and <math|y>-axis and the distance between the vertexes to the
+    center being <math|1>, as shown in the figure below.
+
+    <\equation*>
+      <with|gr-mode|<tuple|group-edit|edit-props>|gr-frame|<tuple|scale|1cm|<tuple|0.5gw|0.5gh>>|gr-geometry|<tuple|geometry|1par|0.6par>|gr-auto-crop|true|gr-text-at-valign|top|<graphics||<point|1|1>|<math-at|a|<point|1|1.2>>|<with|arrow-end|\<gtr\>|<line|<point|-0.4|0>|<point|2.8|0.0>>>|<with|arrow-end|\<gtr\>|<line|<point|0|-0.4>|<point|0.0|2.2>>>|<math-at|x|<point|2.8|-0.4>>|<math-at|y|<point|0.2|2>>|<with|dash-style|11100|<line|<point|1|1>|<point|1.8|1.0>>>|<with|text-at-valign|axis|<math-at|1|<point|1.2|0.8>>>|<cline|<point|1|1.8>|<point|0.2|1.0>|<point|1.0|0.2>|<point|1.8|1.0>>>>
+    </equation*>
+  </solution*>
+
+  <\exercise>
+    Let <math|d> be the distance function defined on <math|\<bbb-R\><rsup|n>>
+    by using Theorem<nbsp>2.3, let <math|d<rprime|'>> be the Euclidean
+    distance function, and let <math|d<rprime|''>> be the distance function
+    defined in Problem<nbsp>2 above. Prove that for each pair of points
+    <math|x,y\<in\>\<bbb-R\><rsup|n>>,
+
+    <\eqnarray*>
+      <tformat|<cwith|1|-1|2|2|cell-lsep|0spc>|<cwith|1|-1|2|2|cell-rsep|0spc>|<cwith|1|-1|1|1|cell-rsep|.5spc>|<cwith|1|-1|1|1|cell-tsep|0sep>|<cwith|1|-1|3|3|cell-lsep|.5spc>|<cwith|1|-1|3|3|cell-rsep|0spc>|<table|<row|<cell|d<around*|(|x,y|)>>|<cell|\<leqslant\>>|<cell|d<rprime|'><around*|(|x,y|)>\<leqslant\><sqrt|n>*d<around*|(|x,y|)>>>|<row|<cell|d<around*|(|x,y|)>>|<cell|\<leqslant\>>|<cell|d<rprime|''><around*|(|x,y|)>\<leqslant\>n\<cdot\>d<around*|(|x,y|)>>>>>
+    </eqnarray*>
+  </exercise>
+
+  <\solution*>
+    To restate the definitions,
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<around*|(|x,y|)>>|<cell|=>|<cell|max<around*|{|<around*|\||x<rsub|1>-y<rsub|1>|\|>+<around*|\||x<rsub|2>-y<rsub|2>|\|>+\<cdots\>+<around*|\||x<rsub|n>-y<rsub|n>|\|>|}>,>>|<row|<cell|d<rprime|'><around*|(|x,y|)>>|<cell|=>|<cell|<sqrt|<around*|(|x<rsub|1>-y<rsub|1>|)><rsup|2>+<around*|(|x<rsub|2>-y<rsub|2>|)><rsup|2>+\<cdots\>+<around*|(|x<rsub|n>-y<rsub|n>|)><rsup|2>>,>>|<row|<cell|d<rprime|''><around*|(|x,y|)>>|<cell|=>|<cell|<around*|\||x<rsub|1>-y<rsub|1>|\|>+<around*|\||x<rsub|2>-y<rsub|2>|\|>+\<cdots\>+<around*|\||x<rsub|n>-y<rsub|n>|\|>.>>>>
+    </eqnarray*>
+
+    Suppose that <math|max<around*|{|<around*|\||x<rsub|1>-y<rsub|1>|\|>+<around*|\||x<rsub|2>-y<rsub|2>|\|>+\<cdots\>+<around*|\||x<rsub|n>-y<rsub|n>|\|>|}>=<around*|\||x<rsub|m>-y<rsub|m>|\|>>.
+    Then we have
+
+    <\equation*>
+      <around*|(|x<rsub|m>-y<rsub|m>|)><rsup|2>\<leqslant\><around*|(|x<rsub|1>-y<rsub|1>|)><rsup|2>+<around*|(|x<rsub|2>-y<rsub|2>|)><rsup|2>+\<cdots\>+<around*|(|x<rsub|n>-y<rsub|n>|)><rsup|2>\<leqslant\>n*<around*|(|x<rsub|m>-y<rsub|m>|)><rsup|2>.
+    </equation*>
+
+    The first inequality holds because the sum of the terms other than
+    <math|<around*|(|x<rsub|m>-y<rsub|m>|)><rsup|2>> is non-negative. The
+    second inequality holds because each term in the sum is less than or
+    equal to <math|<around*|(|x<rsub|m>-y<rsub|m>|)><rsup|2>>. Taking the
+    square root and making use of <math|<around*|\||x|\|>=<sqrt|x<rsup|2>>>,
+    we get <math|d<around*|(|x,y|)>\<leqslant\>d<rprime|'><around*|(|x,y|)>\<leqslant\><sqrt|n>*d<around*|(|x,y|)>>.
+
+    Similarly, we have
+
+    <\equation*>
+      <around*|\||x<rsub|m>-y<rsub|m>|\|>\<leqslant\><around*|\||x<rsub|1>-y<rsub|1>|\|>+<around*|\||x<rsub|2>-y<rsub|2>|\|>+\<cdots\>+<around*|\||x<rsub|n>-y<rsub|n>|\|>\<leqslant\>n*<around*|\||x<rsub|m>-y<rsub|m>|\|>,
+    </equation*>
+
+    or equivalently, <math|d<around*|(|x,y|)>\<leqslant\>d<rprime|''><around*|(|x,y|)>\<leqslant\>n*d<around*|(|x,y|)>>.
+  </solution*>
+
+  <\exercise>
+    Let <math|X> be the set of all continuous functions
+    <math|f:<around*|[|a,b|]>\<rightarrow\>\<bbb-R\>>. For <math|f,g\<in\>X>,
+    define
+
+    <\equation*>
+      d<around*|(|f,g|)>=<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t.
+    </equation*>
+
+    Using appropriate theorems from Calculus, prove that
+    <math|<around*|(|X,d|)>> is a metric space.
+  </exercise>
+
+  <\solution*>
+    We will make use of the following properties of definite integral:
+
+    <\enumerate-numeric>
+      <item><math|<big|int><rsub|a><rsup|b><around*|[|f<around*|(|t|)>\<pm\>g<around*|(|t|)>|]>*\<mathd\>t=<big|int><rsub|a><rsup|b>f<around*|(|t|)>*\<mathd\>t\<pm\><big|int><rsub|a><rsup|b>g<around*|(|t|)>*\<mathd\>t>.
+
+      <item>If <math|f<around*|(|t|)>\<geqslant\>g<around*|(|t|)>> for all
+      <math|t\<in\><around*|[|a,b|]>>, then
+      <math|<big|int><rsub|a><rsup|b>f<around*|(|t|)>*\<mathd\>t\<geqslant\><big|int><rsub|a><rsup|b>g<around*|(|t|)>*\<mathd\>t>
+      with equality if and only if <math|f=g>.
+    </enumerate-numeric>
+
+    Now we consider the properties <math|d> has.
+
+    <\enumerate-numeric>
+      <item>Because <math|<around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>\<geqslant\>0>,
+      using property<nbsp>2, we get <math|d<around*|(|f,g|)>\<geqslant\>0>.
+
+      <item>It follows that <math|d<around*|(|f,g|)>=<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t=0
+      > if and only if <math|f=g>.\ 
+
+      <item>Because <math|<big|int><rsub|a><rsup|b><around*|\||g<around*|(|t|)>-f<around*|(|t|)>|\|>*\<mathd\>t=<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t>,
+      we have <math|d<around*|(|f,g|)>=d<around*|(|g,f|)>>.\ 
+
+      <item>Let <math|f,g,h\<in\>X>. In the triangle inequality of real
+      numbers, <math|<around*|\||a+b|\|>\<leqslant\><around*|\||a|\|>+<around*|\||b|\|>>,
+      substitute <math|a=f<around*|(|t|)>-g<around*|(|t|)>> and
+      <math|b=g<around*|(|t|)>-h<around*|(|t|)>>, we get
+
+      <\equation*>
+        <around*|\||f<around*|(|t|)>-h<around*|(|t|)>|\|>\<leqslant\><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>+<around*|\||g<around*|(|t|)>-h<around*|(|t|)>|\|>.
+      </equation*>
+
+      Using properties<nbsp>1 and 2, we get
+
+      <\equation*>
+        <big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-h<around*|(|t|)>|\|>*\<mathd\>t\<leqslant\><big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t+<big|int><rsub|a><rsup|b><around*|\||g<around*|(|t|)>-h<around*|(|t|)>|\|>*\<mathd\>t,
+      </equation*>
+
+      or equivalently, <math|d<around*|(|f,h|)>\<leqslant\>d<around*|(|f,g|)>+d<around*|(|g,h|)>>.
+    </enumerate-numeric>
+
+    Because of these four properties, <math|<around*|(|X,d|)>> is a metric
+    space.
+  </solution*>
+
+  <\exercise>
+    Let <math|S\<subset\>\<bbb-R\>>. A function
+    <math|f:S\<rightarrow\>\<bbb-R\>> is called <dfn|bounded> if there is a
+    real number <math|K> such that <math|<around*|\||f<around*|(|x|)>|\|>\<leqslant\>k>,
+    <math|x\<in\>S> (or equivalently, <math|f<around*|(|S|)>\<subset\><around*|[|-K,K|]>>).
+    Let <math|X<rprime|'>> be the set of all bounded functions
+    <math|f:<around*|[|a,b|]>\<rightarrow\>\<bbb-R\>>. For
+    <math|f,g\<in\>X<rprime|'>> define
+
+    <\equation*>
+      d<rprime|'><around*|(|f,g|)>=<math-ordinary|<text|l.u.b.>>
+      <big|cup><rsub|x\<in\><around*|[|a,b|]>><around*|{|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>|}>,
+    </equation*>
+
+    (l.u.b. is an abbreviation of <dfn|least upper bound>, see
+    Definition<nbsp>5.5 of this chapter). Prove that
+    <math|<around*|(|X<rprime|'>,d<rprime|'>|)>> is a metric space.
+  </exercise>
+
+  <\solution*>
+    Note: the definition of <math|d<rprime|'>> can be written in more
+    conventional notation, as follows:
+
+    <\equation*>
+      d<rprime|'><around*|(|f,g|)>=sup<around*|{|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>,
+    </equation*>
+
+    where <math|sup> stands for <dfn|supremum>, which is the same as least
+    upper bound.
+
+    We will make use of the following property of supremum:
+
+    <\itemize-dot>
+      <item>If <math|X,Y\<subset\>\<bbb-R\>>, then
+      <math|sup<around*|{|x+y\<barsuchthat\><around*|(|x,y|)>\<in\>X\<times\>Y|}>=sup
+      X+sup Y>.
+    </itemize-dot>
+
+    Now we consider the properties <math|d<rprime|'>> has.
+
+    <\enumerate-numeric>
+      <item>Because <math|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<geqslant\>0>,
+      so the least upper bound must be non-negative. Therefore,
+      <math|d<rprime|'><around*|(|f,g|)>\<geqslant\>0>.
+
+      <item>If <math|f=g>, then <math|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>=0>,
+      and thus <math|d<rprime|'><around*|(|f,g|)>=sup<around*|{|0|}>=0>.
+      Conversely, if <math|d<rprime|'><around*|(|f,g|)>=0>, then
+      <math|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<leqslant\>0>
+      for all <math|x\<in\><around*|[|a,b|]>>. It follows that
+      <math|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>=0> for all
+      <math|x\<in\><around*|[|a,b|]>>, and thus <math|f=g>. We conclude that
+      <math|d<rprime|'><around*|(|f,g|)>=0> if and only if <math|f=g>.
+
+      <item>Since <math|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>=<around*|\||g<around*|(|x|)>-f<around*|(|x|)>|\|>>,
+      it is obvious that <math|d<rprime|'><around*|(|f,g|)>=d<rprime|'><around*|(|g,f|)>>.
+
+      <item>Let <math|f,g,h\<in\>X<rprime|'>>. Then, from the triangle
+      equality of real numbers, we get
+
+      <\equation*>
+        <around*|\||f<around*|(|x|)>-h<around*|(|x|)>|\|>\<leqslant\><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>+<around*|\||g<around*|(|x|)>-h<around*|(|x|)>|\|>
+      </equation*>
+
+      for all <math|x\<in\><around*|[|a,b|]>>. Let
+      <math|M=sup<around*|{|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>+<around*|\||g<around*|(|x|)>-h<around*|(|x|)>|\|>|}>>.
+      Then, <math|<around*|\||f<around*|(|x|)>-h<around*|(|x|)>|\|>\<leqslant\>M>
+      for all <math|x\<in\><around*|[|a,b|]>>. It follows that
+      <math|sup<around*|{|<around*|\||f<around*|(|x|)>-h<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>\<leqslant\>M>.
+      Using the property of supremum, we get
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|sup<around*|{|<around*|\||f<around*|(|x|)>-h<around*|(|x|)>|\|>\|x\<in\><around*|[|a,b|]>|}>>|<cell|\<leqslant\>>|<cell|sup<around*|{|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>+<around*|\||g<around*|(|x|)>-h<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>>>|<row|<cell|>|<cell|=>|<cell|sup<around*|{|<around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>+sup<around*|{|<around*|\||g<around*|(|x|)>-h<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>>>>>
+      </eqnarray*>
+
+      We conclude that <math|d<rprime|'><around*|(|f,h|)>\<leqslant\>d<rprime|'><around*|(|f,g|)>+d<rprime|'><around*|(|g,h|)>>.
+    </enumerate-numeric>
+
+    Because of these four properties, we conclude that
+    <math|<around*|(|X,d<rprime|'>|)>> is a metric space.
+  </solution*>
+
+  <\exercise>
+    Let <math|f,g:<around*|[|a,b|]>\<rightarrow\>\<bbb-R\>> be two functions
+    that are both continuous and bounded. Compare <math|d<around*|(|f,g|)>>
+    and <math|d<rprime|'><around*|(|f,g|)>>, where <math|d> and
+    <math|d<rprime|'>> are defined as in Exercises<nbsp>4 and 5 respectively.
+  </exercise>
+
+  <\solution*>
+    Because
+
+    <\equation*>
+      <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<leqslant\>sup<around*|{|<around*|\||f<around*|(|x|)>-d<around*|(|x|)>|\|>\<barsuchthat\>x\<in\><around*|[|a,b|]>|}>=d<rprime|'><around*|(|f,g|)>
+    </equation*>
+
+    for all <math|x\<in\><around*|[|a,b|]>>, we have
+
+    <\equation*>
+      d<around*|(|f,g|)>=<big|int><rsub|a><rsup|b><around*|\||f<around*|(|t|)>-g<around*|(|t|)>|\|>*\<mathd\>t\<leqslant\><big|int><rsub|a><rsup|b>d<rprime|'><around*|(|f,g|)>*\<mathd\>t=<around*|(|b-a|)>*d<rprime|'><around*|(|f,g|)>.
+    </equation*>
+  </solution*>
+
+  <\exercise>
+    Let <math|X> be a set. For <math|x,y\<in\>X> define function <math|d> by
+
+    <\equation*>
+      d<around*|(|x,x|)>=0,
+    </equation*>
+
+    and
+
+    <\equation*>
+      d<around*|(|x,y|)>=1,
+    </equation*>
+
+    if <math|x\<neq\>y>. Prove that <math|<around*|(|X,d|)>> is a metric
+    space.
+  </exercise>
+
+  <\solution*>
+    Consider the properties that <math|d> has.
+
+    <\enumerate-numeric>
+      <item><math|d<around*|(|x,y|)>\<geqslant\>0> (by definition).
+
+      <item><math|d<around*|(|x,y|)>=0> if and only if <math|x=y> (by
+      definition).
+
+      <item><math|d<around*|(|x,y|)>=d<around*|(|y,x|)>>. Indeed, both equal
+      <math|0> if <math|x\<neq\>y> and <math|1> if <math|x=y>.
+
+      <item><math|d<around*|(|x,z|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,z|)>>.
+      If <math|x=z>, then <math|d<around*|(|x,z|)>=0> and obviously
+      <math|d<around*|(|x,y|)>+d<around*|(|y,z|)>\<geqslant\>0>; if
+      <math|x\<neq\>z>, then <math|d<around*|(|x,z|)>=1>, and since <math|y>
+      cannot be equal to both <math|x> and <math|z>, at least one term on the
+      right is <math|1>, and consequently
+      <math|d<around*|(|x,y|)>+d<around*|(|y,z|)>\<geqslant\>1>.
+    </enumerate-numeric>
+
+    We conclude that <math|<around*|(|X,d|)>> is a metric space.
+  </solution*>
+
+  <\exercise>
+    Let <math|\<bbb-Z\>> be the set of integers. Let <math|p> be a positive
+    prime integer. Given distinct integers <math|m,n> there is a unique
+    integer <math|t=t<around*|(|m,n|)>> such that
+    <math|m-n=p<rsup|t>\<cdot\>k>, where <math|k> is an integer not divisible
+    by <math|p>. Define a function <math|d:\<bbb-Z\>\<times\>\<bbb-Z\>\<rightarrow\>\<bbb-R\>>
+    by the correspondence <math|d<around*|(|m,m|)>=0> and
+
+    <\equation*>
+      d<around*|(|m,n|)>=<frac|1|p<rsup|t>>
+    </equation*>
+
+    for <math|m\<neq\>n>. Prove that <math|<around*|(|\<bbb-Z\>,d|)>> is a
+    metric space. [<em|Hint:> for <math|a,b,c\<in\>\<bbb-Z\>>,
+    <math|t<around*|(|a,c|)>\<geqslant\>minimum<around*|{|t<around*|(|a,b|)>,t<around*|(|b,c|)>|}>>].
+    Let <math|p=3>. What is the set of elements <math|x\<in\>\<bbb-Z\>> such
+    that <math|d<around*|(|0,x|)>\<less\>1>? What is the set of elements
+    <math|x\<in\>\<bbb-Z\>> such that <math|d<around*|(|0,x|)>\<less\><frac|1|3>>?
+  </exercise>
+
+  <\solution*>
+    Consider the properties that <math|d> has.
+
+    <\enumerate-numeric>
+      <item><math|d<around*|(|m,n|)>\<geqslant\>0> (by definition).
+
+      <item><math|d<around*|(|m,n|)>=0> if and only if <math|m=n> (by
+      definition, since <math|1/p<rsup|t>\<gtr\>0>).
+
+      <item>Let <math|m-n=p<rsup|t>\<cdot\>k>. Then,
+      <math|n-m=p<rsup|t>\<cdot\><around*|(|-k|)>>. Here, <math|-k> is an
+      integer not divisible by <math|p>. Therefore,
+      <math|d<around*|(|m,n|)>=d<around*|(|n,m|)>=<frac|1|p<rsup|t>>>.
+
+      <item>Let <math|a,b,c\<in\>\<bbb-Z\>>. Let
+      <math|x=min<around*|{|t<around*|(|a,b|)>,t<around*|(|b,c|)>|}>> and
+      <math|y=max<around*|{|t<around*|(|a,b|)>,t<around*|(|b,c|)>|}>>. Then
+
+      <\equation*>
+        <frac|1|p<rsup|t<around*|(|a,b|)>>>+<frac|1|p<rsup|t<around*|(|b,c|)>>>=<frac|1|p<rsup|x>>+<frac|1|p<rsup|y>>.
+      </equation*>
+
+      Because <math|t<around*|(|a,c|)>\<geqslant\>x> (i.e., the \Phint\Q),
+      and <math|p> is positive, we have
+
+      <\equation*>
+        <frac|1|p<rsup|t<around*|(|a,c|)>>>\<leqslant\><frac|1|p<rsup|x>>\<leqslant\><frac|1|p<rsup|x>>+<frac|1|p<rsup|y>>=<frac|1|p<rsup|t<around*|(|a,b|)>>>+<frac|1|p<rsup|t<around*|(|b,c|)>>>,
+      </equation*>
+
+      or equivalently, <math|d<around*|(|a,c|)>\<leqslant\>d<around*|(|a,b|)>+d<around*|(|b,c|)>>.
+    </enumerate-numeric>
+
+    Therefore, we conclude that <math|<around*|(|\<bbb-Z\>,d|)>> is a metric
+    space.
+
+    Let <math|p=3>, then
+
+    <\equation*>
+      <around*|{|x\<in\>\<bbb-Z\>\<barsuchthat\>d<around*|(|0,x|)>\<less\>1|}>=<around*|{|0,\<pm\>3,\<pm\>6,\<pm\>9,\<ldots\>|}>
+    </equation*>
+
+    is the set of multiples of <math|3>, and
+
+    <\equation*>
+      <around*|{|x\<in\>\<bbb-Z\>\<barsuchthat\>d<around*|(|0,x|)>\<less\><frac|1|3>|}>=<around*|{|0,\<pm\>9,\<pm\>18,\<pm\>27,\<ldots\>|}>
+    </equation*>
+
+    is the set of multiples of <math|9>.
+  </solution*>
 </body>
 
 <\initial>
@@ -1904,6 +2306,9 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|1.9|14>>
     <associate|auto-11|<tuple|1.10|16>>
+    <associate|auto-12|<tuple|2|19>>
+    <associate|auto-13|<tuple|2.1|19>>
+    <associate|auto-14|<tuple|2.2|19>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -1965,6 +2370,18 @@
       <with|par-left|<quote|1tab>|1.10<space|2spc>Arbitrary products
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Metric
+      Spaces> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|2.1<space|2spc>Introduction
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13>>
+
+      <with|par-left|<quote|1tab>|2.2<space|2spc>Metric spaces
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-14>>
     </associate>
   </collection>
 </auxiliary>
