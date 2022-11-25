@@ -80,6 +80,10 @@
     <with|par-left|1tab|2.3<space|2spc>Continuity
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-15>>
+
+    <with|par-left|1tab|2.4<space|2spc>Open balls and neighborhoods
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-16>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -2546,12 +2550,396 @@
       <tformat|<table|<row|<cell|<around*|(|m*k*h*g|)><around*|(|x,y|)>>|<cell|=>|<cell|m<around*|(|k<around*|(|h<around*|(|g<around*|(|x,y|)>|)>|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|k<around*|(|h<around*|(|<around*|(|x,y|)>,<around*|(|x,y|)>|)>|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|k<around*|(|x+y,x-y|)>|)>>>|<row|<cell|>|<cell|=>|<cell|m<around*|(|<around*|(|x+y|)><rsup|2>,<around*|(|x-y|)><rsup|2>|)>>>|<row|<cell|>|<cell|=>|<cell|<frac|1|4><around*|[|<around*|(|x+y|)><rsup|2>-<around*|(|x-y|)><rsup|2>|]>>>|<row|<cell|>|<cell|=>|<cell|x*y.>>>>
     </eqnarray*>
   </solution*>
+
+  <subsection|Open balls and neighborhoods>
+
+  <\exercise>
+    Let <math|<around*|(|X,d|)>> be a metric space such that
+    <math|d<around*|(|x,y|)>=1> whenever <math|x\<neq\>y>. Let
+    <math|a\<in\>X>. Prove that <math|<around*|{|a|}>> is a neighborhood of
+    <math|a> and constitutes a basis for the system of neighborhoods at
+    <math|a>. Prove that every subset of <math|X> is a neighborhood of each
+    of its points.
+  </exercise>
+
+  <\solution*>
+    Consider the open ball <math|B<around*|(|a;1|)>>. This open ball has
+    precisely one element, namely <math|a>. Therefore,
+    <math|B<around*|(|a;1|)>\<subset\><around*|{|a|}>>. By the definition of
+    neighborhood, <math|<around*|{|a|}>> is a neighborhood of<nbsp><math|a>.
+
+    Let <math|N> be a neighborhood of<nbsp><math|a>, then there exists an
+    open ball <math|B<around*|(|a;\<delta\>|)>\<subset\>N> where
+    <math|\<delta\>\<gtr\>0>. Since <math|a\<in\>B<around*|(|a;\<delta\>|)>>,
+    we have <math|<around*|{|a|}>\<subset\>B<around*|(|a;\<delta\>|)>\<subset\>N>.
+    We conclude that any neighborhood of<nbsp><math|a> contains
+    <math|<around*|{|a|}>>, and consequently <math|<around*|{|a|}>>
+    constitutes a basis of the system of neighborhoods.
+
+    Let <math|S\<subset\>X> and <math|x\<in\>S>. The open ball
+    <math|B<around*|(|x;1|)>> contains precisely one element, namely
+    <math|x>. Therefore, <math|B<around*|(|x;1|)>\<subset\>S>, and
+    consequently <math|S> is a neighborhood of<nbsp><math|x>. We conclude
+    that every subset of <math|X> is a neighborhood of each of its points.
+  </solution*>
+
+  <\exercise>
+    Let <math|a\<in\>\<bbb-R\>> and <math|f:\<bbb-R\>\<rightarrow\>\<bbb-R\>>
+    be defined by <math|f<around*|(|x|)>=0> for <math|x\<leqslant\>a>,
+    <math|f<around*|(|x|)>=1> for <math|x\<gtr\>a>. Prove that <math|f> is
+    not continuous at <math|a>, but is continuous at all other points.
+  </exercise>
+
+  <\solution*>
+    Let <math|\<varepsilon\>=1>. Assume that <math|f> is continuous
+    at<nbsp><math|a>. By Theorem<nbsp>4.2, there exists a
+    <math|\<delta\>\<gtr\>0> such that <math|f<around*|(|B<around*|(|a;\<delta\>|)>|)>\<subset\>B<around*|(|f<around*|(|a|)>;\<varepsilon\>|)>>.
+    However, <math|B<around*|(|f<around*|(|a|)>;\<varepsilon\>|)>=B<around*|(|0,1|)>=<around*|(|-1,1|)>>,
+    and <math|<around*|{|0,1|}>\<subset\>f<around*|(|B<around*|(|a;\<delta\>|)>|)>>
+    because <math|f<around*|(|a-\<delta\>/2|)>=0> and
+    <math|f<around*|(|a+\<delta\>/2|)>=1>. This implies that
+    <math|<around*|{|0,1|}>\<subset\><around*|(|-1,1|)>>, which is
+    impossible. Therefore, the assumption is false, and thus <math|f> is not
+    continuous at<nbsp><math|a>.
+
+    Let <math|b\<in\>\<bbb-R\>>, <math|b\<neq\>a>. For any
+    <math|\<varepsilon\>\<gtr\>0>, choose
+    <math|\<delta\>=<around*|\||a-b|\|>\<gtr\>0>.
+
+    <\enumerate>
+      <item>If <math|b\<less\>a>, then <math|f<around*|(|b|)>=0> and
+      <math|\<delta\>=a-b>. When <math|<around*|\||x-b|\|>\<less\>\<delta\>>,
+      we have <math|x\<less\>b+\<delta\>=a>, so <math|f<around*|(|x|)>=0>.
+      Therefore, <math|<around*|\||f<around*|(|x|)>-f<around*|(|b|)>|\|>=0\<less\>\<varepsilon\>>.
+
+      <item>If <math|b\<gtr\>a>, then <math|f<around*|(|b|)>=1> and
+      <math|\<delta\>=b-a>. When <math|<around*|\||x-b|\|>\<less\>\<delta\>>,
+      we have <math|x\<gtr\>b-\<delta\>=a>, so <math|f<around*|(|x|)>=1>.
+      Therefore, <math|<around*|\||f<around*|(|x|)>-f<around*|(|b|)>|\|>=0\<less\>\<varepsilon\>>.
+    </enumerate>
+
+    In any case, when <math|<around*|\||x-b|\|>\<less\>\<delta\>>, we have
+    <math|<around*|\||f<around*|(|x|)>-f<around*|(|b|)>|\|>\<less\>\<varepsilon\>>.
+    Therefore, <math|f> is continuous at any point other than <math|a>.
+  </solution*>
+
+  <\exercise>
+    Let <math|f:X\<rightarrow\>Y> be a function from a metric
+    space<nbsp><math|X> into a metric space<nbsp>Y. Let <math|a\<in\>X> and
+    let <math|\<cal-B\><rsub|f<around*|(|a|)>>> be a basis for the
+    neighborhood system at <math|f<around*|(|a|)>>. Prove that <math|f> is
+    continuous at <math|a> if and only if for each
+    <math|N\<in\><with|font|cal|B><rsub|f<around*|(|a|)>>>,
+    <math|f<rsup|-1><around*|(|N|)>> is a neighborhood of <math|a>.
+  </exercise>
+
+  <\solution*>
+    \;
+
+    (Necessity.) Let <math|N\<in\><with|font|cal|B><rsub|f<around*|(|a|)>>>.
+    Then, <math|N> is a neighborhood of<nbsp><math|f<around*|(|a|)>>. By
+    Theorem<nbsp>4.7, <math|f<rsup|-1><around*|(|N|)>> is a neighborhood
+    of<nbsp><math|a>.
+
+    (Sufficiency.) Let <math|M> be a neighborhood
+    of<nbsp><math|f<around*|(|a|)>>. Then there exists
+    <math|M<rprime|'>\<in\><with|font|cal|B><rsub|f<around*|(|a|)>>> such
+    that <math|M<rprime|'>\<subset\>M>. Let
+    <math|N=f<rsup|-1><around*|(|M<rprime|'>|)>>, then <math|N> is a
+    neighborhood of<nbsp><math|a>. Furthermore,
+    <math|f<around*|(|N|)>\<subset\>M<rprime|'>\<subset\>M>. By
+    Theorem<nbsp>4.6, <math|f> is continuous at<nbsp><math|a>.
+  </solution*>
+
+  <\exercise>
+    Let <math|a> be a point on the real line <math|\<bbb-R\>>. Prove that
+    each of the following collections of subsets of <math|\<bbb-R\>>
+    constitute a basis for the system of neighborhoods at <math|a>:
+
+    <\enumerate-roman>
+      <item>All closed intervals of the form
+      <math|<around*|[|a-\<varepsilon\>,a+\<varepsilon\>|]>>,
+      <math|\<varepsilon\>\<gtr\>0>;
+
+      <item>All open balls <math|B<around*|(|a;\<varepsilon\>|)>>,
+      <math|\<varepsilon\>> a positive rational number;
+
+      <item>All open balls <math|B<around*|(|a;<frac|1|n>|)>>, <math|n> a
+      positive integer;
+
+      <item>All open balls <math|B<around*|(|a;<frac|1|n>|)>>, <math|n> a
+      positive integer larger than some fixed integer<nbsp><math|k>.
+    </enumerate-roman>
+
+    Show that no finite collection of <math|\<bbb-R\>> can be a basis for the
+    system of neighborhoods at <math|a>.
+  </exercise>
+
+  <\solution*>
+    For any neighborhood<nbsp><math|N> of<nbsp><math|a>, there exists
+    <math|B<around*|(|a;\<delta\>|)>\<subset\>N> where
+    <math|\<delta\>\<gtr\>0>. It suffices to prove that there exists a
+    neighborhood of<nbsp><math|a> that is contained by
+    <math|B<around*|(|a;\<delta\>|)>>.
+
+    <\enumerate-roman>
+      <item>Let <math|\<varepsilon\>=\<delta\>/2>. Then, we have
+      <math|<around*|[|a-\<varepsilon\>,a+\<varepsilon\>|]>\<subset\>B<around*|(|a;\<delta\>|)>>.
+
+      <item>There exists a rational number<nbsp><math|\<varepsilon\>> such
+      that <math|0\<less\>\<varepsilon\>\<less\>\<delta\>>, because there is
+      a rational number between any two real numbers. Then, we have
+      <math|B<around*|(|a;\<varepsilon\>|)>\<subset\>B<around*|(|a;\<delta\>|)>>.
+
+      <item>Choose <math|n=<around*|\<lceil\>|1/\<delta\>|\<rceil\>>\<geqslant\>1/\<delta\>>.
+      Then, <math|0\<less\>1/n\<leqslant\>\<delta\>>, and we have
+      <math|B<around*|(|a;<frac|1|n>|)>\<subset\>B<around*|(|a;\<delta\>|)>>.
+
+      <item>Choose <math|n=min<around*|{|k+1,<around*|\<lceil\>|1/\<delta\>|\<rceil\>>|}>\<geqslant\>1/\<delta\>>.
+      Then same as (iii).
+    </enumerate-roman>
+  </solution*>
+
+  <\exercise>
+    Let <math|a> be a point in a metric space<nbsp><math|X>. Let
+    <math|\<bbb-N\>> be the set of positive integers. Prove that there is a
+    collection <math|<around*|{|B<rsub|n>|}><rsub|n\<in\>\<bbb-N\>>> of
+    neighborhoods of<nbsp><math|a> which constitutes a basis for the system
+    of neighborhoods at<nbsp><math|a>.
+  </exercise>
+
+  <\solution*>
+    Let <math|B<rsub|n>=B<around*|(|a;<frac|1|n>|)>>. For any
+    neighborhood<nbsp><math|N> of<nbsp><math|a>, there exists
+    <math|B<around*|(|a;\<delta\>|)>\<subset\>N> where
+    <math|\<delta\>\<gtr\>0>. Then, there exists a positive integer
+    <math|m=<around*|\<lceil\>|1/\<delta\>|\<rceil\>>\<geqslant\>1/\<delta\>>,
+    and we have
+
+    <\equation*>
+      B<rsub|m>=B<around*|(|a;<frac|1|m>|)>\<subset\>B<around*|(|a;\<delta\>|)>\<subset\>N.
+    </equation*>
+
+    Therefore, <math|<around*|{|B<rsub|n>|}><rsub|n\<in\>\<bbb-N\>>> is a
+    basis for the system of neighborhoods at<nbsp><math|a>.
+  </solution*>
+
+  <\exercise>
+    Let <math|a> and <math|b> be distinct points of a metric
+    space<nbsp><math|X>. Prove that there are neighborhoods <math|N<rsub|a>>
+    and <math|N<rsub|b>> of <math|a> and <math|b> respectively such that
+    <math|N<rsub|a>\<cap\>N<rsub|b>=\<varnothing\>>.
+  </exercise>
+
+  <\solution*>
+    Let <math|\<delta\>=d<around*|(|a,b|)>>. Then, because <math|a\<neq\>b>,
+    we have <math|\<delta\>\<gtr\>0>. Now let
+    <math|N<rsub|a>=B<around*|(|a;\<delta\>/2|)>> and
+    <math|N<rsub|b>=B<around*|(|b;\<delta\>/2|)>>.
+
+    Assume that <math|N<rsub|a>\<cap\>N<rsub|b>\<neq\>\<varnothing\>>. Then,
+    there exists <math|x\<in\>X> such that <math|x\<in\>N<rsub|a>> and
+    <math|x\<in\>N<rsub|b>>, so <math|d<around*|(|a,x|)>\<less\>\<delta\>/2>
+    and <math|d<around*|(|x,b|)>\<less\>\<delta\>/2>. It follows that
+
+    <\equation*>
+      \<delta\>=d<around*|(|a,b|)>\<leqslant\>d<around*|(|a,x|)>+d<around*|(|x,b|)>\<less\>\<delta\>/2+\<delta\>/2=\<delta\>,
+    </equation*>
+
+    which is impossible. Therefore, the assumption is false, and
+    <math|N<rsub|a>\<cap\>N<rsub|b>=\<varnothing\>>.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X<rsub|1>,d<rsub|1>|)>,<around*|(|X<rsub|2>,d<rsub|2>|)>,\<ldots\>,<around*|(|X<rsub|n>,d<rsub|n>|)>>
+    be metric spaces and convert
+
+    <\equation*>
+      X=<big|prod><rsub|i=1><rsup|n>X<rsub|i>
+    </equation*>
+
+    into a metric space in the standard manner. Prove that an open ball in
+    <math|<around*|(|X,d|)>> is the product of open balls from
+    <math|X<rsub|1>,X<rsub|2>,\<ldots\>,X<rsub|n>> respectively. Let
+    <math|a<rsub|i>\<in\>X<rsub|i>>, <math|i=1,2,\<ldots\>,n>, and let
+    <math|<with|font|cal|B><rsub|a<rsub|i>>> be a basis for the neighborhood
+    system at <math|a<rsub|i>>. Let <math|<with|font|cal|B><rsub|a>> be the
+    collection of all sets of the form <math|B<rsub|1>\<times\>B<rsub|2>\<times\>\<ldots\>\<times\>B<rsub|n>>,
+    <math|B<rsub|i>\<in\><with|font|cal|B><rsub|a<rsub|i>>>. Prove that
+    <math|<with|font|cal|B><rsub|a>> is a basis of the neighborhood system at
+    <math|a=<around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|n>|)>\<in\>X>.
+    Let <math|p<rsub|i>:X\<rightarrow\>X<rsub|i>>, <math|i=1,2,\<ldots\>,n>,
+    be the projection that maps <math|p<rsub|i><around*|(|a|)>=a<rsub|i>>.
+    Prove that each <math|p<rsub|i>> is continuous. Let <math|Y> be a metric
+    space and <math|f:Y\<rightarrow\>X> a function. Prove that <math|f> is
+    continuous if and only if each of the <math|n>
+    functions<nbsp><math|p<rsub|i>*f> is continuous.
+  </exercise>
+
+  <\solution*>
+    (Part<nbsp>1.) Let <math|a=<around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|n>|)>\<in\>X>.
+    Then, let <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>\<in\>B<around*|(|a;\<delta\>|)>>
+    for some <math|\<delta\>\<gtr\>0>. By the definition of open ball, we
+    have
+
+    <\equation*>
+      d<around*|(|x,a|)>=max<rsub|1\<leqslant\>i\<leqslant\>n><around*|{|d<around*|(|x<rsub|i>,a<rsub|i>|)>|}>\<less\>\<delta\>,
+    </equation*>
+
+    which is equivalent to
+
+    <\equation*>
+      d<around*|(|x<rsub|i>,a<rsub|i>|)>\<less\>\<delta\>,<space|1em><text|i.e.,><space|1em>x<rsub|i>\<in\>B<around*|(|a<rsub|i>;\<delta\>|)>
+    </equation*>
+
+    for <math|i=1,2,\<ldots\>,n>. We conclude that
+
+    <\equation*>
+      B<around*|(|a;\<delta\>|)>=<big|prod><rsub|i=1><rsup|n>B<around*|(|a<rsub|i>;\<delta\>|)>.
+    </equation*>
+
+    (Part<nbsp>2.) Let <math|N> be a neighborhood of<nbsp><math|a>. Then,
+    there exists a <math|\<delta\>\<gtr\>0> such that
+    <math|B<around*|(|a;\<delta\>|)>\<subset\>N>. For each
+    <math|i=1,2,\<ldots\>,n>, the open ball
+    <math|B<around*|(|a<rsub|i>;\<delta\>|)>> is a neighborhood
+    of<nbsp><math|a<rsub|i>>, so there exists
+    <math|B<rsub|i>\<in\><with|font|cal|B><rsub|a<rsub|i>>> such that
+    <math|B<rsub|i>> is a neighborhood at<nbsp><math|a<rsub|i>> and
+    <math|B<rsub|i>\<subset\>B<around*|(|a<rsub|i>;\<delta\>|)>>. Let
+    <math|B=B<rsub|1>\<times\>B<rsub|2>\<times\>\<ldots\>\<times\>B<rsub|n>\<in\><with|font|cal|B><rsub|a>>.
+
+    <\lemma*>
+      If <math|X<rsub|i>\<subset\>Y<rsub|i>> for each
+      <math|i=1,2,\<ldots\>,n>, then <math|<big|prod><rsub|i=1><rsup|n>X<rsub|i>\<subset\><big|prod><rsub|i=1><rsup|n>Y<rsub|i>>.
+    </lemma*>
+
+    <\proof>
+      Let <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>\<in\><big|prod><rsub|i=1><rsup|n>X<rsub|i>>.
+      Then for each <math|i=1,2,\<ldots\>,n>,
+      <math|x<rsub|i>\<in\>X<rsub|i>\<subset\>Y<rsub|i>>. Therefore,
+      <math|x\<in\><big|prod><rsub|i=1><rsup|n>Y<rsub|i>>.
+    </proof>
+
+    By the lemma, we obtain
+
+    <\equation*>
+      B=<big|prod><rsub|i=1><rsup|n>B<rsub|i>\<subset\><big|prod><rsub|i=1><rsup|n>B<around*|(|a<rsub|i>;\<delta\>|)>=B<around*|(|a;\<delta\>|)>\<subset\>N.
+    </equation*>
+
+    Furthermore, for each <math|i=1,2,\<ldots\>,n>, <math|B<rsub|i>> is a
+    neighborhood at<nbsp><math|a<rsub|i>>. Thus, there exists a
+    <math|\<delta\><rsub|i><rprime|'>\<gtr\>0> such that
+    <math|B<around*|(|a<rsub|i>;\<delta\><rsub|i><rprime|'>|)>\<subset\>B<rsub|i>>.
+    Let <math|\<delta\><rprime|'>=min<rsub|1\<leqslant\>i\<leqslant\>n><around*|{|\<delta\><rsub|i><rprime|'>|}>>.
+    Then,
+
+    <\equation*>
+      B<around*|(|a<rsub|i>;\<delta\><rprime|'>|)>\<subset\>B<around*|(|a<rsub|i>;\<delta\><rsub|i><rprime|'>|)>\<subset\>B<rsub|i>,
+    </equation*>
+
+    and by the lemma, we get
+
+    <\equation*>
+      B<around*|(|a;\<delta\><rprime|'>|)>=<big|prod><rsub|i=1><rsup|n>B<around*|(|a<rsub|i>;\<delta\><rprime|'>|)>\<subset\><big|prod><rsub|i=1><rsup|n>B<rsub|i>=B.
+    </equation*>
+
+    We conclude that <math|B\<subset\>N> is a neighborhood at<nbsp><math|a>.
+    Therefore, <math|<with|font|cal|B><rsub|a>> is a basis of the
+    neighborhood system at<nbsp><math|a>.
+
+    (Part<nbsp>3.) For each <math|i=1,2,\<ldots\>,n>, let <math|M> be a
+    neighborhood at<nbsp><math|a<rsub|i>>. Then, there exists a
+    <math|\<delta\>\<gtr\>0> such that <math|B<around*|(|a<rsub|i>;\<delta\>|)>\<subset\>M>.
+    Let <math|N=B<around*|(|a;\<delta\>|)>>. Then <math|N> is a neighborhood
+    at<nbsp><math|a>, and we have
+
+    <\equation*>
+      p<rsub|i><around*|(|N|)>=p<rsub|i><around*|(|<reduce-by|<big|prod><rsub|j=1><rsup|n>B<around*|(|a<rsub|j>;\<delta\>|)>|0.5ex>|)>=B<around*|(|a<rsub|i>;\<delta\>|)>\<subset\>M.
+    </equation*>
+
+    By Theorem<nbsp>4.6, <math|p<rsub|i>> is continuous at<nbsp><math|a>.
+    Furthormore, since we can choose any <math|a\<in\>X>, we conclude that
+    <math|p<rsub|i>> is continuous at every point in<nbsp><math|X>.
+
+    (Part<nbsp>4.) Prove that <math|f> is continuous if and only if each of
+    the <math|n> functions<nbsp><math|p<rsub|i>*f> is continuous.
+
+    Necessity can be easily proved by Corollary<nbsp>3.7 (the composite of
+    two continuous functions is continuous). Now we will prove the
+    sufficiency. Let <math|a\<in\>Y>. Then, <math|f<around*|(|a|)>\<in\>X>.
+    Let <math|M> be a neighborhood at<nbsp><math|f<around*|(|a|)>>. Then,
+    there exists a <math|\<delta\>\<gtr\>0> where
+    <math|B<around*|(|f<around*|(|a|)>;\<delta\>|)>\<subset\>M>. From
+    Part<nbsp>1, we know that
+
+    <\equation*>
+      B<around*|(|f<around*|(|a|)>;\<delta\>|)>=<big|prod><rsub|i=1><rsup|n>B<around*|(|p<rsub|i><around*|(|f<around*|(|a|)>|)>;\<delta\>|)>=<big|prod><rsub|i=1><rsup|n>B<around*|(|<around*|(|p<rsub|i>*f|)><around*|(|a|)>;\<delta\>|)>.
+    </equation*>
+
+    For each <math|i=1,2,\<ldots\>,n>, because <math|p<rsub|i>*f> is
+    continuous, by theorem<nbsp>4.2, there exists a
+    <math|\<delta\><rprime|'>\<gtr\>0> such that\ 
+
+    <\equation*>
+      <around*|(|p<rsub|i>*f|)><around*|(|B<around*|(|a;\<delta\><rprime|'>|)>|)>\<subset\>B<around*|(|<around*|(|p<rsub|i>*f|)><around*|(|a|)>;\<delta\>|)>.
+    </equation*>
+
+    Let <math|N=B<around*|(|a;\<delta\><rprime|'>|)>> and
+    <math|x\<in\>f<around*|(|N|)>>. Then,
+    <math|p<rsub|i><around*|(|x|)>\<in\>p<rsub|i><around*|(|f<around*|(|N|)>|)>>,
+    and consequently
+
+    <\equation*>
+      x=<big|prod><rsub|i=1><rsup|n>p<rsub|i><around*|(|x|)>\<in\><big|prod><rsub|i=1><rsup|n>p<rsub|i><around*|(|f<around*|(|N|)>|)>=<big|prod><rsub|i=1><rsup|n><around*|(|p<rsub|i>*f|)><around*|(|N|)>.
+    </equation*>
+
+    This implies <math|f<around*|(|N|)>\<subset\><big|prod><rsub|i=1><rsup|n><around*|(|p<rsub|i>*f|)><around*|(|N|)>>.
+    Furthermore, by the lemma, we have
+
+    <\equation*>
+      <big|prod><rsub|i=1><rsup|n><around*|(|p<rsub|i>*f|)><around*|(|N|)>\<subset\><big|prod><rsub|i=1><rsup|n>B<around*|(|<around*|(|p<rsub|i>*f|)><around*|(|a|)>;\<delta\>|)>=B<around*|(|f<around*|(|a|)>;\<delta\>|)>\<subset\>M.
+    </equation*>
+
+    We conclude that <math|f<around*|(|N|)>\<subset\>M>, and since <math|N>
+    is a neighborhood at<nbsp><math|a>, by Theorem<nbsp>4.6, <math|f> is
+    continuous.
+  </solution*>
+
+  <\exercise>
+    Let <math|\<bbb-R\>> be the real numbers and
+    <math|f:\<bbb-R\>\<rightarrow\>\<bbb-R\>> a continuous function. Suppose
+    that for some number <math|a\<in\>\<bbb-R\>>,
+    <math|f<around*|(|a|)>\<gtr\>0>. Prove that there is a positive number
+    <math|k> and a closed interval <math|F=<around*|[|a-\<delta\>,a+\<delta\>|]>>
+    for some <math|\<delta\>\<gtr\>0> such that
+    <math|f<around*|(|x|)>\<geqslant\>k> for <math|x\<in\>F>.
+  </exercise>
+
+  <\solution*>
+    Let <math|k=f<around*|(|a|)>/2>. Then, <math|k\<gtr\>0>. For the open
+    ball <math|B<around*|(|f<around*|(|a|)>;k|)>>, there exists a
+    <math|\<delta\><rprime|'>\<gtr\>0> such that
+
+    <\equation*>
+      f<around*|(|B<around*|(|a;\<delta\><rprime|'>|)>|)>\<subset\>B<around*|(|f<around*|(|a|)>;k|)>.
+    </equation*>
+
+    Let <math|\<delta\>=\<delta\><rprime|'>/2\<gtr\>0>. Then, for any
+    <math|x\<in\>F>, we have <math|<around*|\||x-a|\|>\<leqslant\>\<delta\>\<less\>\<delta\><rprime|'>>.
+    Therefore, <math|x\<in\>B<around*|(|a;\<delta\><rprime|'>|)>> and
+    <math|f<around*|(|x|)>\<in\>B<around*|(|f<around*|(|a|)>;k|)>>.
+    Consequently, <math|f<around*|(|x|)>\<gtr\>f<around*|(|a|)>-k=k>.
+  </solution*>
 </body>
 
 <\initial>
   <\collection>
+    <associate|font|roman>
+    <associate|font-family|rm>
     <associate|info-flag|minimal>
     <associate|locus-color|preserve>
+    <associate|math-font|roman>
     <associate|page-height|auto>
     <associate|page-medium|paper>
     <associate|page-screen-margin|true>
@@ -2576,6 +2964,7 @@
     <associate|auto-13|<tuple|2.1|19>>
     <associate|auto-14|<tuple|2.2|19>>
     <associate|auto-15|<tuple|2.3|23>>
+    <associate|auto-16|<tuple|2.4|26>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -2655,6 +3044,10 @@
       <with|par-left|<quote|1tab>|2.3<space|2spc>Continuity
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-15>>
+
+      <with|par-left|<quote|1tab>|2.4<space|2spc>Open balls and neighborhoods
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16>>
     </associate>
   </collection>
 </auxiliary>
