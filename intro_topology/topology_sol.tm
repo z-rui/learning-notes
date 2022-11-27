@@ -6,9 +6,7 @@
   <\hide-preamble>
     <assign|render-exercise|<\macro|which|body>
       <\padded>
-        <\indent-left|<value|exercise-indentation>>
-          <surround|<exercise-name|<arg|which><exercise-sep>>|<yes-indent*>|<arg|body>>
-        </indent-left>
+        <surround|<exercise-name|<arg|which><exercise-sep>>|<yes-indent*>|<arg|body>>
       </padded>
     </macro>>
 
@@ -84,6 +82,10 @@
     <with|par-left|1tab|2.4<space|2spc>Open balls and neighborhoods
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-16>>
+
+    <with|par-left|1tab|2.5<space|2spc>Limits
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-17>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -2789,7 +2791,8 @@
     which is equivalent to
 
     <\equation*>
-      d<around*|(|x<rsub|i>,a<rsub|i>|)>\<less\>\<delta\>,<space|1em><text|i.e.,><space|1em>x<rsub|i>\<in\>B<around*|(|a<rsub|i>;\<delta\>|)>
+      d<around*|(|x<rsub|i>,a<rsub|i>|)>\<less\>\<delta\>,<text|that is,
+      >x<rsub|i>\<in\>B<around*|(|a<rsub|i>;\<delta\>|)>
     </equation*>
 
     for <math|i=1,2,\<ldots\>,n>. We conclude that
@@ -2816,7 +2819,7 @@
 
     <\proof>
       Let <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>\<in\><big|prod><rsub|i=1><rsup|n>X<rsub|i>>.
-      Then for each <math|i=1,2,\<ldots\>,n>,
+      Then, for each <math|i=1,2,\<ldots\>,n>,
       <math|x<rsub|i>\<in\>X<rsub|i>\<subset\>Y<rsub|i>>. Therefore,
       <math|x\<in\><big|prod><rsub|i=1><rsup|n>Y<rsub|i>>.
     </proof>
@@ -2931,6 +2934,483 @@
     <math|f<around*|(|x|)>\<in\>B<around*|(|f<around*|(|a|)>;k|)>>.
     Consequently, <math|f<around*|(|x|)>\<gtr\>f<around*|(|a|)>-k=k>.
   </solution*>
+
+  <subsection|Limits>
+
+  <\exercise>
+    Let <math|X<rsub|1>,X<rsub|2>,\<ldots\>,X<rsub|n>> be metric spaces and
+    convert <math|X=<big|prod><rsub|i=1><rsup|n>X<rsub|i>> into a metric
+    space in the standard manner. Each of the points
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> of a sequence of points
+    of<nbsp><math|X> has <math|k><nbsp>coordinates; that is
+    <math|a<rsub|n>=<around*|(|a<rsub|1><rsup|n>,a<rsub|2><rsup|n>,\<ldots\>,a<rsub|k><rsup|n>|)>\<in\>X>,
+    <math|n=1,2,\<ldots\>>. Let <math|c=<around*|(|c<rsub|1>,c<rsub|2>,\<ldots\>,c<rsub|k>|)>\<in\>X>.
+    Prove that <math|lim<rsub|n> a<rsub|n>=c> if and only if
+    <math|lim<rsub|n> a<rsub|i><rsup|n>=c<rsub|i>>, <math|i=1,2,\<ldots\>,k>.
+  </exercise>
+
+  <\solution*>
+    \;
+
+    (Necessity.) Suppose that <math|lim<rsub|n> a<rsub|n>=c>. Let
+    <math|\<varepsilon\>\<gtr\>0>. There exists an
+    integer<nbsp><math|N\<gtr\>0> such that whenever <math|n\<gtr\>N>,
+    <math|d<around*|(|a<rsub|n>,c|)>\<less\>\<varepsilon\>>. Recall that
+    <math|d<around*|(|a<rsub|n>,c|)>=max<rsub|1\<leqslant\>i\<leqslant\>k><around*|{|d<around*|(|a<rsub|i><rsup|n>,c<rsub|i>|)>|}>>.
+    Now, for each <math|i=1,2,\<ldots\>,k>, whenever <math|n\<gtr\>N>, we
+    have <math|d<around*|(|a<rsub|i><rsup|n>,c<rsub|i>|)>\<less\>\<varepsilon\>>.
+    Therefore, <math|lim<rsub|n> a<rsub|i><rsup|n>=c<rsub|i>>.
+
+    (Sufficiency.) Suppose that <math|lim<rsub|n>
+    a<rsub|i><rsup|n>=c<rsub|i>>, <math|i=1,2,\<ldots\>,k>. Let
+    <math|\<varepsilon\>\<gtr\>0>. For each <math|i=1,2,\<ldots\>,k>, there
+    exists an integer<nbsp><math|N<rsub|i>\<gtr\>0> such that whenever
+    <math|n\<gtr\>N<rsub|i>>, <math|d<around*|(|a<rsub|i><rsup|n>,c<rsub|i>|)>\<less\>\<varepsilon\>>.
+    Let <math|N=max<rsub|1\<leqslant\>i\<leqslant\>k><around*|{|N<rsub|i>|}>>.
+    Now, whenever <math|n\<gtr\>N>, <math|d<around*|(|a<rsub|n>,c|)>\<less\>\<varepsilon\>>.
+    Therefore, <math|lim<rsub|n> a<rsub|n>=c>.
+  </solution*>
+
+  <\exercise>
+    In each of the three metric spaces <math|<around*|(|\<bbb-R\><rsup|k>,d|)>>,
+    <math|<around*|(|\<bbb-R\><rsup|k>,d<rprime|'>|)>>,
+    <math|<around*|(|\<bbb-R\><rsup|k>,d<rprime|''>|)>>, considered in
+    Section<nbsp>2, prove that limits of sequences are the same.
+  </exercise>
+
+  <\solution*>
+    Let <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a sequence in
+    <math|\<bbb-R\><rsup|k>>. Recall that in Section<nbsp>2, Exercise<nbsp>3,
+    we have
+
+    <\equation*>
+      d<around*|(|x,y|)>\<leqslant\>d<rprime|'><around*|(|x,y|)>\<leqslant\><sqrt|k>*d<around*|(|x,y|)>.
+    </equation*>
+
+    Suppose that in <math|<around*|(|\<bbb-R\><rsup|k>,d|)>>,
+    <math|lim<rsub|n> a<rsub|n>=c>. Let <math|\<varepsilon\>\<gtr\>0>. Then
+    <math|<frac|\<varepsilon\>|<sqrt|k>>\<gtr\>0> and there exists an
+    integer<nbsp><math|N> such that whenever <math|n\<gtr\>N>,
+    <math|d<around*|(|a<rsub|n>,c|)>\<less\><frac|\<varepsilon\>|<sqrt|k>>>.
+    It follows that whenver <math|n\<gtr\>N>, we have
+    <math|d<rprime|'><around*|(|x,y|)>\<leqslant\><sqrt|k>*d<around*|(|x,y|)>\<less\>\<varepsilon\>>,
+    and consequently in <math|<around*|(|\<bbb-R\><rsup|k>,d<rprime|'>|)>> we
+    also have <math|lim<rsub|n> a<rsub|n>=c>. Conversely, suppose that
+    <math|<around*|(|\<bbb-R\><rsup|k>,d<rprime|'>|)>>, <math|lim<rsub|n>
+    a<rsub|n>=c>. Let <math|\<varepsilon\>\<gtr\>0>. Then there exists an
+    integer<nbsp><math|N> such that whenever <math|n\<gtr\>N>,
+    <math|d<rprime|'><around*|(|a<rsub|n>,c|)>\<less\>\<varepsilon\>>. It
+    follows that whenever <math|n\<gtr\>N>, we have
+    <math|d<around*|(|x,y|)>\<leqslant\>d<rprime|'><around*|(|x,y|)>\<less\>\<varepsilon\>>,
+    and consequently in <math|<around*|(|\<bbb-R\><rsup|k>,d|)>> we also have
+    <math|lim<rsub|n> a<rsub|n>=c>.
+
+    Similarly, we can prove that the limits are the same between
+    <math|<around*|(|\<bbb-R\><rsup|k>,d|)>> and
+    <math|<around*|(|\<bbb-R\><rsup|k>,d<rprime|''>|)>> by using
+
+    <\equation*>
+      d<around*|(|x,y|)>\<leqslant\>d<rprime|''><around*|(|x,y|)>\<leqslant\>k*d<around*|(|x,y|)>.
+    </equation*>
+  </solution*>
+
+  <\exercise>
+    Prove that a subsequence of a convergent sequence is convergent and
+    converges to the same limit as the original sequence.
+  </exercise>
+
+  <\solution*>
+    Let <math|<around*|(|X,d|)>> be a metric space,
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a convergent sequence, and
+    <math|lim<rsub|n> a<rsub|n>=a>.
+
+    Let <math|b<rsub|1>,b<rsub|2>,\<ldots\>> be a subsequence of
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>>, that is, there is a function
+    <math|j:\<bbb-N\>\<rightarrow\>\<bbb-N\>> such that
+    <math|j<around*|(|i|)>\<less\>j<around*|(|i+1|)>> for
+    all<nbsp><math|i\<in\>\<bbb-N\>>, and
+    <math|b<rsub|i>=a<rsub|j<around*|(|i|)>>>. By definition,
+    <math|j<around*|(|1|)>\<geqslant\>1>. Assume that
+    <math|j<around*|(|k|)>\<geqslant\>k>, then
+    <math|j<around*|(|k+1|)>\<gtr\>j<around*|(|k|)>=k>. Because
+    <math|j<around*|(|k+1|)>> is an integer, we have
+    <math|j<around*|(|k+1|)>\<geqslant\>k+1>. Therefore, by mathematical
+    induction, <math|j<around*|(|i|)>\<geqslant\>i> for
+    <math|i\<in\>\<bbb-N\>>.
+
+    Let <math|\<varepsilon\>\<gtr\>0>. Then there exists an integer <math|N>
+    such that whenever <math|n\<gtr\>N>, we have
+    <math|d<around*|(|a<rsub|n>,a|)>\<less\>\<varepsilon\>>. Now, when
+    <math|n\<gtr\>N>, we have <math|j<around*|(|n|)>\<geqslant\>n\<gtr\>N>,
+    and thus <math|d<around*|(|b<rsub|n>,a|)>=d<around*|(|a<rsub|j<around*|(|n|)>>,a|)>\<less\>\<varepsilon\>>.
+    We conclude that <math|lim<rsub|n> b<rsub|n>=a>.
+  </solution*>
+
+  <\exercise>
+    A sequence of real numbers <math|a<rsub|1>,a<rsub|2>,\<ldots\>> is called
+    <dfn|monotone non-decreasing> if <math|a<rsub|i>\<leqslant\>a<rsub|i+1>>
+    for each<nbsp><math|i> and called <dfn|monotone non-increasing> if
+    <math|a<rsub|i>\<geqslant\>a<rsub|i+1>> for each<nbsp><math|i>. A
+    sequence which is either monotone non-decreasing or monotone
+    non-increasing is said to be <dfn|monotone>. The sequence is said to be
+    <dfn|bounded above> if there is a number<nbsp><math|K> such that
+    <math|a<rsub|i>\<leqslant\>K> for each<nbsp><math|i> and <dfn|bounded
+    below> if there is a number<nbsp><math|M> such that
+    <math|a<rsub|i>\<geqslant\>M> for each<nbsp><math|i>. A sequence which is
+    both bounded above and bounded below is called <dfn|bounded>. Prove that
+    a convergent sequence of real numbers is bounded. Prove that a monotone
+    non-decreasing sequence of real numbers which is bounded above converges
+    to a limit<nbsp><math|a> and that <math|a> is the supremum<\footnote>
+      Or \Pl.u.b.\Q as in the book.
+    </footnote> of the set <math|<around*|{|a<rsub|1>,a<rsub|2>,\<ldots\>|}>>.
+    Similarly prove that a monotone non-increasing sequence which is bounded
+    below converges to a limit<nbsp><math|b> and that <math|b> is the
+    infimum<\footnote>
+      Or \Pg.l.b.\Q as in the book.
+    </footnote> of the set <math|<around*|{|a<rsub|1>,a<rsub|2>,\<ldots\>|}>>.
+  </exercise>
+
+  <\solution*>
+    (Part 1.) Let <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a convergent
+    sequence of real numbers and <math|lim<rsub|n> a<rsub|n>=a>. Let
+    <math|\<varepsilon\>\<gtr\>0>. Then, there exists an
+    integer<nbsp><math|N> such that whenever <math|n\<gtr\>N>, we have
+    <math|<around*|\||a<rsub|n>-a|\|>\<less\>\<varepsilon\>>. Let
+    <math|K=max<around*|(|<around*|{|a<rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>N|}>\<cup\><around*|{|a+\<varepsilon\>|}>|)>>
+    and <math|M=min<around*|(|<around*|{|a<rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>N|}>\<cup\><around*|{|a-\<varepsilon\>|}>|)>>.
+    Then,
+
+    <\enumerate>
+      <item>For <math|1\<leqslant\>i\<leqslant\>N>,
+      <math|a<rsub|i>\<leqslant\>max<around*|{|a<rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>N|}>\<leqslant\>K>
+      and <math|a<rsub|i>\<geqslant\>min><math|<around*|{|a<rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>N|}>\<geqslant\>M>.
+
+      <item>For <math|i\<gtr\>N>, <math|-\<varepsilon\>\<less\>a<rsub|i>-a\<less\>\<varepsilon\>>,
+      which implies <math|M\<leqslant\>a-\<varepsilon\>\<less\>a<rsub|i>\<less\>a+\<varepsilon\>\<leqslant\>K>.
+    </enumerate>
+
+    We conclude that for all <math|i\<in\>\<bbb-N\>>, we have
+    <math|M\<leqslant\>a<rsub|i>\<leqslant\>K>. Therefore, the sequence
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> is bounded.
+
+    (Part 2.) Let <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a monotone
+    non-decreasing sequence of real numbers which is bounded above. Let
+    <math|a=sup<around*|{|a<rsub|1>,a<rsub|2>,\<ldots\>|}>>. Then, by the
+    symmetric case of Lemma<nbsp>5.6, for all <math|\<varepsilon\>\<gtr\>0>,
+    there is an element <math|a<rsub|N>> such that
+    <math|a-a<rsub|N>\<less\>\<varepsilon\>>, or equivalently
+    <math|a<rsub|N>\<gtr\>a-\<varepsilon\>>. Because
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> is monotone non-decreasing, whenever
+    <math|n\<gtr\>N>, we have <math|a<rsub|n>\<geqslant\>a<rsub|N>\<gtr\>a-\<varepsilon\>>.
+    Therefore, <math|0\<leqslant\>a-a<rsub|n>\<less\>\<varepsilon\>>. We
+    conclude for all <math|\<varepsilon\>\<gtr\>0>, there exists an integer
+    <math|N> such that whenever <math|n\<gtr\>N>, we have
+    <math|<around*|\||a<rsub|n>-a|\|>\<less\>\<varepsilon\>>, so
+    <math|lim<rsub|n> a<rsub|n>=a>. The proof for the symmetric case is
+    omitted.
+  </solution*>
+
+  <\exercise>
+    Let <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a bounded sequence of real
+    numbers. Since each of the sets <math|A<rsub|n>=<around*|{|a<rsub|n>,a<rsub|n+1>,\<ldots\>|}>>
+    is bounded we may set <math|v<rsub|n>=inf A<rsub|n>>, <math|u<rsub|n>=sup
+    A<rsub|n>>. Observe that <math|v<rsub|n>\<leqslant\>u<rsub|n>>;
+    <math|v<rsub|1>,v<rsub|2>,\<ldots\>> is monotone non-decreasing and
+    bounded above; and <math|u<rsub|1>,u<rsub|2>,\<ldots\>> is monotone
+    non-increasing and bounded below. Let <math|V=lim<rsub|n> v<rsub|n>> and
+    <math|U=lim<rsub|n> u<rsub|n>>. Prove that there are subsequences of
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> which converge to <math|U> and
+    <math|V> respectively (thus a bounded sequence of real numbers has a
+    convergent subsequence). Prove that <math|a<rsub|1>,a<rsub|2>,\<ldots\>>
+    converges if and only if <math|U=V>.
+  </exercise>
+
+  <\note*>
+    Since <math|V=lim<rsub|n> v<rsub|n>>, <math|v<rsub|n>> can be arbitrarily
+    close to <math|V>. It suffices to construct a subsequence such that
+    <math|a<rsub|j<around*|(|n|)>>> can be arbitrarily close to
+    <math|v<rsub|n>>.
+  </note*>
+
+  <\solution*>
+    (Part<nbsp>1.) Define
+
+    <\equation*>
+      S<rsub|n>=<around*|{|m\<in\>\<bbb-N\>\<barsuchthat\>m\<geqslant\>n\<wedge\>a<rsub|m>-v<rsub|n>\<less\><frac|1|n>|}>.
+    </equation*>
+
+    For each <math|n\<in\>\<bbb-N\>>, we have <math|v<rsub|n>=inf
+    A<rsub|n>=inf <around*|{|a<rsub|n>,a<rsub|n+1>,\<ldots\>|}>>. By
+    Lemma<nbsp>5.6, there exists an element <math|a<rsub|m>\<in\>A<rsub|n>>,
+    where <math|m\<geqslant\>n>, such that
+    <math|a<rsub|m>-v<rsub|n>\<less\><frac|1|n>>. Therefore, we assert that
+    <math|S<rsub|n>\<neq\>\<varnothing\>> for each<nbsp><math|n>. Define
+    <math|j:\<bbb-N\>\<rightarrow\>\<bbb-N\>> by
+
+    <\equation*>
+      j<around*|(|i|)>=<choice|<tformat|<table|<row|<cell|min
+      S<rsub|1>>|<cell|<text|if <math|i=1>,>>>|<row|<cell|min
+      S<rsub|j<around*|(|i-1|)>+1>>|<cell|else.>>>>>
+    </equation*>
+
+    It follows <math|j<around*|(|1|)>\<geqslant\>1> and
+    <math|j<around*|(|i+1|)>\<gtr\>j<around*|(|i|)>> for each<nbsp><math|i>.
+    Consequently, <math|j<around*|(|n|)>\<geqslant\>n> for
+    each<nbsp><math|n>.
+
+    We assert that <math|a<rsub|j<around*|(|i|)>>-v<rsub|j<around*|(|i|)>>\<less\><frac|1|i>>
+    for each<nbsp><math|i>. Indeed, recall that
+    <math|v<rsub|1>,v<rsub|2>,\<ldots\>> is monotone non-decreasing. Then:
+
+    <\itemize>
+      <item>When <math|i=1>, <math|j<around*|(|1|)>\<geqslant\>1> and thus
+      <math|v<rsub|j<around*|(|1|)>>\<geqslant\>v<rsub|j<around*|(|1|)>>>.
+      Since <math|j<around*|(|1|)>\<in\>S<rsub|1>>, we have
+
+      <\equation*>
+        a<rsub|j<around*|(|1|)>>-v<rsub|j<around*|(|1|)>>\<leqslant\>a<rsub|j<around*|(|1|)>>-v<rsub|1>\<less\>1.
+      </equation*>
+
+      <item>When <math|i\<gtr\>1>, <math|j<around*|(|i|)>\<geqslant\>j<around*|(|i-1|)>+1>
+      and thus <math|v<rsub|j<around*|(|i|)>>\<geqslant\>v<rsub|j<around*|(|i-1|)>+1>>.
+      Since <math|j<around*|(|i|)>\<in\>S<rsub|j<around*|(|i-1|)>+1>>, we
+      have
+
+      <\equation*>
+        a<rsub|j<around*|(|i|)>>-v<rsub|j<around*|(|i|)>>\<leqslant\>a<rsub|j<around*|(|i|)>>-v<rsub|j<around*|(|i-1|)>+1>\<less\><frac|1|j<around*|(|i-1|)>+1>\<leqslant\><frac|1|i>.
+      </equation*>
+    </itemize>
+
+    Let <math|\<varepsilon\>\<gtr\>0>. Observe that
+
+    <\itemize>
+      <item><math|<frac|\<varepsilon\>|2>\<gtr\>0>. Therefore, because
+      <math|lim<rsub|n> v<rsub|n>=V>, there exists an
+      integer<nbsp><math|N<rprime|'>\<gtr\>0> such that whenever
+      <math|n\<gtr\>N<rprime|'>>, we have
+      <math|<around*|\||v<rsub|n>-V|\|>\<less\><frac|\<varepsilon\>|2>>.
+      Since <math|j<around*|(|n|)>\<geqslant\>n\<gtr\>N<rprime|'>>, we have
+
+      <\equation*>
+        <around*|\||v<rsub|j<around*|(|n|)>>-V|\|>\<less\><frac|\<varepsilon\>|2>.
+      </equation*>
+
+      <item>Whenever <math|n\<gtr\><frac|2|\<varepsilon\>>>, we have
+      <math|<frac|1|n>\<less\><frac|\<varepsilon\>|2>>. Note that
+      <math|v<rsub|j<around*|(|n|)>>> is a lower bound of
+      <math|<around*|{|a<rsub|j<around*|(|n|)>>,a<rsub|j<around*|(|n|)>+1>,\<ldots\>|}>>,
+      which implies that <math|v<rsub|j<around*|(|n|)>>\<leqslant\>a<rsub|j<around*|(|n|)>>>.
+      Therefore,
+
+      <\equation*>
+        <around*|\||a<rsub|j<around*|(|n|)>>-v<rsub|j<around*|(|n|)>>|\|>=a<rsub|j<around*|(|n|)>>-v<rsub|j<around*|(|n|)>>\<less\><frac|1|n>\<less\><frac|\<varepsilon\>|2>.
+      </equation*>
+    </itemize>
+
+    Let <math|N=max<around*|{|N<rprime|'>,<frac|2|\<varepsilon\>>|}>>. Then,
+    whenever <math|n\<gtr\>N>, we have
+
+    <\equation*>
+      <around*|\||a<rsub|j<around*|(|n|)>>-V|\|>\<leqslant\><around*|\||a<rsub|j<around*|(|n|)>>-v<rsub|j<around*|(|n|)>>|\|>+<around*|\||v<rsub|j<around*|(|n|)>>-V|\|>\<less\><frac|\<varepsilon\>|2>+<frac|\<varepsilon\>|2>=\<varepsilon\>.
+    </equation*>
+
+    Therefore, <math|lim<rsub|n> a<rsub|j<around*|(|n|)>>=V>. We have
+    constructed a subsequence of <math|a<rsub|1>,a<rsub|2>,\<ldots\>> which
+    converges to <math|V>.
+
+    Similarly, we can construct a subsequence of
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> which converges to <math|U>.
+
+    (Part<nbsp>2.) Suppose that <math|U=V>. Let
+    <math|\<varepsilon\>\<gtr\>0>. Then:
+
+    <\itemize>
+      <item>There exists an integer<nbsp><math|N<rsub|1>> such that whenever
+      <math|n\<gtr\>N<rsub|1>>, we have <math|<around*|\||v<rsub|n>-V|\|>\<less\>\<varepsilon\>>,
+      which implies <math|v<rsub|n>\<gtr\>V-\<varepsilon\>>. Since
+      <math|v<rsub|n>=inf A<rsub|n>>, we have
+      <math|a<rsub|n>\<geqslant\>v<rsub|n>\<gtr\>V-\<varepsilon\>>.
+
+      <item>There exists an integer<nbsp><math|N<rsub|2>> such that whenever
+      <math|n\<gtr\>N<rsub|2>>, we have <math|<around*|\||u<rsub|n>-U|\|>\<less\>\<varepsilon\>>,
+      which implies <math|u<rsub|n>\<less\>U+\<varepsilon\>>. Since
+      <math|u<rsub|n>=sup A<rsub|n>>, we have
+      <math|a<rsub|n>\<leqslant\>u<rsub|n>\<less\>U+\<varepsilon\>>.
+    </itemize>
+
+    Let <math|N=max<around*|{|N<rsub|1>,N<rsub|2>|}>>. We conclude that
+    whenever <math|n\<gtr\>N>, we have <math|V-\<varepsilon\>\<less\>a<rsub|n>\<less\>U+\<varepsilon\>>,
+    or equivalently,
+
+    <\equation*>
+      <around*|\||a<rsub|n>-U|\|>=<around*|\||a<rsub|n>-V|\|>\<less\>\<varepsilon\>.
+    </equation*>
+
+    Therefore, the sequence converges, and <math|lim<rsub|n> a<rsub|n>=U=V>.
+
+    Conversely, suppose <math|a<rsub|1>,a<rsub|2>,\<ldots\>> converges, and
+    <math|lim<rsub|n> a<rsub|n>=A>. Assume that <math|V\<neq\>A>. Then, let
+    <math|\<varepsilon\>=<around*|\||<frac|V-A|2>|\|>\<gtr\>0>. Since
+    <math|lim<rsub|n> a<rsub|n>=A>, there exists an
+    integer<nbsp><math|N<rsub|1>> such that whenever
+    <math|n\<gtr\>N<rsub|1>>, <math|<around*|\||a<rsub|n>-A|\|>\<less\>\<varepsilon\>>.
+    Since <math|lim<rsub|n> v<rsub|n>=V>, there exists an
+    integer<nbsp><math|N<rsub|2>> such that whenever
+    <math|n\<gtr\>N<rsub|2>>, <math|<around*|\||v<rsub|n>-V|\|>\<less\>\<varepsilon\>>.
+    Let <math|N=max<around*|{|N<rsub|1>,N<rsub|2>|}>>. Then, whenever
+    <math|n\<gtr\>max<around*|{|N<rsub|1>,N<rsub|2>|}>>:
+
+    <\itemize>
+      <item>If <math|V\<gtr\>A>, we have <math|a<rsub|n>\<less\>A+\<varepsilon\>=V-\<varepsilon\>\<less\>v<rsub|n>>,
+      which contradicts <math|v<rsub|n>\<leqslant\>a<rsub|n>> due to
+      <math|v<rsub|n>=inf A<rsub|n>>.
+
+      <item>If <math|V\<less\>A>, for all<nbsp><math|i\<geqslant\>n\<gtr\>N>,
+      we have <math|a<rsub|i>\<gtr\>A-\<varepsilon\>>. Therefore,
+      <math|A-\<varepsilon\>> is a lower bound of<nbsp><math|A<rsub|n>>, and
+      thus <math|v<rsub|n>=inf A<rsub|n>\<geqslant\>A-\<varepsilon\>>.
+      However, we also have <math|v<rsub|n>\<less\>V+\<varepsilon\>=A-\<varepsilon\>>,
+      leading to a contradiction.
+    </itemize>
+
+    In conclusion, we must have <math|V=A>. Similarly, we can prove that
+    <math|U=A>. Therefore, <math|U=V>.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X,d|)>> be a metric space and <math|A> a non-empty
+    subset of<nbsp><math|X>. For <math|x,y\<in\>X>, prove that
+    <math|d<around*|(|x,A|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,A|)>>.
+  </exercise>
+
+  <\solution*>
+    Given any <math|x,y\<in\>A>, let <math|z\<in\>A>. Then, in the metric
+    space <math|<around*|(|X,d|)>>, we have
+    <math|d<around*|(|x,z|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,z|)>>.
+    Note that <math|d<around*|(|x,A|)>> is a lower bound of
+    <math|<around*|{|d<around*|(|x,z|)>\<barsuchthat\>z\<in\>A|}>>.
+    Therefore, <math|d<around*|(|x,A|)>\<leqslant\>d<around*|(|x,z|)>>.
+    Consequently,
+
+    <\equation*>
+      d<around*|(|x,A|)>-d<around*|(|x,y|)>\<leqslant\>d<around*|(|x,z|)>-d<around*|(|x,y|)>\<leqslant\>d<around*|(|y,z|)>,
+    </equation*>
+
+    which implies that <math|d<around*|(|x,A|)>-d<around*|(|x,y|)>> is a
+    lower bound of <math|<around*|{|d<around*|(|y,z|)>\<barsuchthat\>z\<in\>A|}>>.
+    Therefore,
+
+    <\equation*>
+      d<around*|(|x,A|)>-d<around*|(|x,y|)>\<leqslant\>inf
+      <around*|{|d<around*|(|y,z|)>\<barsuchthat\>z\<in\>A|}>=d<around*|(|y,A|)>,
+    </equation*>
+
+    or equivalently, <math|d<around*|(|x,A|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,A|)>>.
+  </solution*>
+
+  <\exercise>
+    Let <math|A> be a non-empty subset of a metric space
+    <math|<around*|(|X,d|)>>. Define the function
+    <math|f:X\<rightarrow\>\<bbb-R\>> by <math|f<around*|(|x|)>=d<around*|(|x,A|)>>.
+    Prove that <math|f> is continuous.
+  </exercise>
+
+  <\solution*>
+    Let <math|a\<in\>X>. Let <math|\<varepsilon\>\<gtr\>0>. Choose
+    <math|\<delta\>=\<varepsilon\>\<gtr\>0>. Let <math|x\<in\>X>. Then,
+    whenever <math|d<around*|(|x,a|)>\<less\>\<delta\>>, by Exercise<nbsp>6,
+    we have <math|d<around*|(|x,A|)>\<leqslant\>d<around*|(|x,a|)>+d<around*|(|a,A|)>>,
+    or equivalently
+
+    <\equation*>
+      d<around*|(|x,A|)>-d<around*|(|a,A|)>\<leqslant\>d<around*|(|x,a|)>.
+    </equation*>
+
+    Similarly, we can prove that <math|d<around*|(|a,A|)>-d<around*|(|x,A|)>\<leqslant\>d<around*|(|a,x|)>>.
+    We conclude that whenever <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we
+    have
+
+    <\equation*>
+      <around*|\||f<around*|(|x|)>-f<around*|(|a|)>|\|>=<around*|\||d<around*|(|x,A|)>-d<around*|(|a,A|)>|\|>\<leqslant\>d<around*|(|x,a|)>\<less\>\<delta\>=\<varepsilon\>.
+    </equation*>
+
+    Therefore, <math|f> is continuous at<nbsp><math|a>. Because <math|a> can
+    be any point in<nbsp><math|X>, <math|f> is continuous.
+  </solution*>
+
+  <\exercise>
+    Let <math|A> be a non-empty subset of a metric space
+    <math|<around*|(|X,d|)>> and let <math|x\<in\>X>. Prove that
+    <math|d<around*|(|x,A|)>=0> if and only if every neighborhood
+    of<nbsp><math|x> contains a point of<nbsp><math|A>.
+  </exercise>
+
+  <\solution*>
+    Suppose that <math|d<around*|(|x,A|)>=0>. That is, <math|inf
+    <around*|{|d<around*|(|x,y|)>\<barsuchthat\>y\<in\>A|}>=0>. Let <math|N>
+    be a neighborhood at<nbsp><math|x>. Then, there exists a
+    <math|\<delta\>\<gtr\>0> such that <math|B<around*|(|x;\<delta\>|)>\<subset\>N>.
+    By Lemma<nbsp>5.6, there exists a <math|y\<in\>A> such that
+    <math|d<around*|(|x,y|)>-0\<less\>\<delta\>>, which implies that
+    <math|y\<in\>B<around*|(|x;\<delta\>|)>\<subset\>N>. We conclude that
+    every neighborhood of<nbsp><math|x> contains a point of<nbsp><math|A>.
+
+    Conversely, suppose that every neighborhood of<nbsp><math|x> contains a
+    point of<nbsp><math|A>. Assume that <math|d<around*|(|x,A|)>=\<delta\>\<gtr\>0>.
+    Then, since <math|B<around*|(|x;\<delta\>|)>> is a neighborhood
+    at<nbsp><math|x>, so there exists a <math|y\<in\>B<around*|(|x;\<delta\>|)>>
+    such that <math|y\<in\>A>. Then, <math|d<around*|(|x,y|)>\<less\>\<delta\>>.
+    We obtain the contradiction
+
+    <\equation*>
+      \<delta\>=d<around*|(|x,A|)>=inf <around*|{|d<around*|(|x,y|)>\<barsuchthat\>y\<in\>A|}>\<leqslant\>d<around*|(|x,y|)>\<less\>\<delta\>.
+    </equation*>
+
+    Therefore, the assumption is false; we must have
+    <math|d<around*|(|x,A|)>=0>.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X,d|)>> be a metric space. Define a distance
+    function<nbsp><math|d<rsup|\<ast\>>> on <math|X\<times\>X> by the method
+    of Theorem<nbsp>2.3. Prove that the function
+    <math|d:<around*|(|X\<times\>X,d<rsup|\<ast\>>|)>\<rightarrow\><around*|(|\<bbb-R\>,d|)>>
+    is continuous.
+  </exercise>
+
+  <\solution*>
+    Let <math|<around*|(|a<rsub|1>,a<rsub|2>|)>\<in\>X\<times\>X>. Let
+    <math|\<varepsilon\>\<gtr\>0>. Choose
+    <math|\<delta\>=\<varepsilon\>/2\<gtr\>0>. Let
+    <math|<around*|(|x<rsub|1>,x<rsub|2>|)>\<in\>X>. Then, whenever
+    <math|d<rsup|\<ast\>><around*|(|<around*|(|x<rsub|1>,x<rsub|2>|)>,<around*|(|a<rsub|1>,a<rsub|2>|)>|)>\<less\>\<delta\>>,
+    we have
+
+    <\equation*>
+      min<around*|{|d<around*|(|x<rsub|1>,a<rsub|1>|)>,d<around*|(|x<rsub|2>,a<rsub|2>|)>|}>\<less\>\<delta\>.
+    </equation*>
+
+    That is, <math|d<around*|(|x<rsub|1>,a<rsub|1>|)>\<less\>\<delta\>> and
+    <math|d<around*|(|x<rsub|2>,a<rsub|2>|)>\<less\>\<delta\>>. Due to the
+    properties of metric space, we have
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<around*|(|x<rsub|1>,x<rsub|2>|)>>|<cell|\<leqslant\>>|<cell|d<around*|(|x<rsub|1>,a<rsub|1>|)>+d<around*|(|x<rsub|2>,a<rsub|1>|)>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|d<around*|(|x<rsub|1>,a<rsub|1>|)>+d<around*|(|x<rsub|2>,a<rsub|2>|)>+d<around*|(|a<rsub|1>,a<rsub|2>|)>.>>>>
+    </eqnarray*>
+
+    Therefore,
+
+    <\equation*>
+      d<around*|(|x<rsub|1>,x<rsub|2>|)>-d<around*|(|a<rsub|1>,a<rsub|2>|)>\<leqslant\>d<around*|(|x<rsub|1>,a<rsub|1>|)>+d<around*|(|x<rsub|2>,a<rsub|2>|)>\<less\>\<delta\>+\<delta\>=\<varepsilon\>.
+    </equation*>
+
+    Similarly, we can prove that <math|d<around*|(|a<rsub|1>,a<rsub|2>|)>-d<around*|(|x<rsub|1>,x<rsub|2>|)>\<less\>\<varepsilon\>>.
+    We conclude that whenever <math|d<rsup|\<ast\>><around*|(|<around*|(|x<rsub|1>,x<rsub|2>|)>,<around*|(|a<rsub|1>,a<rsub|2>|)>|)>\<less\>\<delta\>>,
+    we have <math|<around*|\||d<around*|(|x<rsub|1>,x<rsub|2>|)>-d<around*|(|a<rsub|1>,a<rsub|2>|)>|\|>\<less\>\<varepsilon\>>.
+    Consequently, <math|d> is continuous at<nbsp><math|<around*|(|a<rsub|1>,a<rsub|2>|)>>.
+    Since <math|<around*|(|a<rsub|1>,a<rsub|2>|)>> can be any point in
+    <math|X\<times\>X>, <math|d> is continuous.
+  </solution*>
 </body>
 
 <\initial>
@@ -2960,11 +3440,12 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|1.9|14>>
     <associate|auto-11|<tuple|1.10|16>>
-    <associate|auto-12|<tuple|2|19>>
-    <associate|auto-13|<tuple|2.1|19>>
-    <associate|auto-14|<tuple|2.2|19>>
-    <associate|auto-15|<tuple|2.3|23>>
-    <associate|auto-16|<tuple|2.4|26>>
+    <associate|auto-12|<tuple|2|18>>
+    <associate|auto-13|<tuple|2.1|18>>
+    <associate|auto-14|<tuple|2.2|18>>
+    <associate|auto-15|<tuple|2.3|22>>
+    <associate|auto-16|<tuple|2.4|25>>
+    <associate|auto-17|<tuple|2.5|29>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -2974,11 +3455,15 @@
     <associate|auto-8|<tuple|1.7|11>>
     <associate|auto-9|<tuple|1.8|13>>
     <associate|footnote-1|<tuple|1|16>>
-    <associate|footnote-2|<tuple|2|17>>
-    <associate|footnote-3|<tuple|3|24>>
+    <associate|footnote-2|<tuple|2|16>>
+    <associate|footnote-3|<tuple|3|23>>
+    <associate|footnote-4|<tuple|4|30>>
+    <associate|footnote-5|<tuple|5|30>>
     <associate|footnr-1|<tuple|1|16>>
-    <associate|footnr-2|<tuple|2|17>>
-    <associate|footnr-3|<tuple|3|24>>
+    <associate|footnr-2|<tuple|2|16>>
+    <associate|footnr-3|<tuple|3|23>>
+    <associate|footnr-4|<tuple|4|30>>
+    <associate|footnr-5|<tuple|5|30>>
   </collection>
 </references>
 
@@ -3048,6 +3533,10 @@
       <with|par-left|<quote|1tab>|2.4<space|2spc>Open balls and neighborhoods
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-16>>
+
+      <with|par-left|<quote|1tab>|2.5<space|2spc>Limits
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-17>>
     </associate>
   </collection>
 </auxiliary>
