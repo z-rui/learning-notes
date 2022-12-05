@@ -86,6 +86,10 @@
     <with|par-left|1tab|2.5<space|2spc>Limits
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-17>>
+
+    <with|par-left|1tab|2.6<space|2spc>Open sets and closed sets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-18>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -3411,6 +3415,365 @@
     Since <math|<around*|(|a<rsub|1>,a<rsub|2>|)>> can be any point in
     <math|X\<times\>X>, <math|d> is continuous.
   </solution*>
+
+  <subsection|Open sets and closed sets>
+
+  <\exercise>
+    Let <math|<around*|(|X<rsub|i>,d<rsub|i>|)>>, <math|i=1,2,\<ldots\>,n> be
+    metric spaces. Let <math|X=<big|prod><rsub|i=1><rsup|n>X<rsub|i>> and let
+    <math|<around*|(|X,d|)>> be the metric space defined in the standard
+    manner by Theorem<nbsp>2.3. For <math|i=1,2,\<ldots\>,n>, let
+    <math|O<rsub|i>> be an open subset of<nbsp><math|X<rsub|i>>. Prove that
+    the subset <math|O<rsub|1>\<times\>O<rsub|2>\<times\>\<cdots\>\<times\>O<rsub|n>>
+    of<nbsp><math|X> is open and that each open subset of<nbsp><math|X> is a
+    union of sets of this form. [A collection of open sets of a metric space
+    is called a <dfn|basis for the open sets> if each open set is a union of
+    sets in this collection. For example, the open balls in a metric space
+    form a basis for the open sets.]
+  </exercise>
+
+  <\solution*>
+    (Part<nbsp>1.) Let <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>\<in\>O<rsub|1>\<times\>O<rsub|2>\<times\>\<cdots\>\<times\>O<rsub|n>>.
+    For <math|i=1,2,\<ldots\>,n>, since <math|O<rsub|i>> is an open set,
+    <math|O<rsub|i>> is a neighborhood at<nbsp><math|x<rsub|i>>, and there
+    exists a <math|\<delta\><rsub|i>\<gtr\>0> such that
+    <math|x<rsub|i>\<in\>B<around*|(|x<rsub|i>;\<delta\><rsub|i>|)>\<subset\>O<rsub|i>>.
+    Furthermore, let <math|\<delta\>=min<around*|{|\<delta\><rsub|i>\<barsuchthat\>1\<leqslant\>i\<leqslant\>n|}>>.
+    Then, <math|x<rsub|i>\<in\>B<around*|(|x<rsub|i>;\<delta\>|)>\<subset\>B<around*|(|x<rsub|i>;\<delta\><rsub|i>|)>\<subset\>O<rsub|i>>
+    for each<nbsp><math|i>. Therefore,
+
+    <\equation*>
+      B<around*|(|x;\<delta\>|)>=<big|prod><rsub|i=1><rsup|n>B<around*|(|x<rsub|i>;\<delta\>|)>\<subset\><big|prod><rsub|i=1><rsup|n>O<rsub|i>.
+    </equation*>
+
+    We conclude that <math|<big|prod><rsub|i=1><rsup|n>O<rsub|i>> is a
+    neighborhood at<nbsp><math|x>, and consequently it is an open set.
+
+    (Part<nbsp>2.) Let <math|A> be an open subset of<nbsp><math|X>. Then,
+    <math|A=<big|prod><rsub|i=1><rsup|n>A<rsub|i>> where
+    <math|A<rsub|i>\<subset\>X<rsub|i>> for each<nbsp><math|i>. By
+    Theorem<nbsp>6.2, <math|A> is a union of open balls, that is,
+
+    <\equation*>
+      A=<big|cup><rsub|a\<in\>A>B<around*|(|a;\<delta\><rsub|a>|)>=<big|cup><rsub|a\<in\>A><big|prod><rsub|i=1><rsup|n>B<around*|(|p<rsub|i><around*|(|a|)>;\<delta\><rsub|a>|)>,
+    </equation*>
+
+    where <math|p<rsub|i>> is the appropriate projection function. Here,
+    <math|<big|prod><rsub|i=1><rsup|n>B<around*|(|p<rsub|i><around*|(|a|)>;\<delta\><rsub|a>|)>>
+    is a product of open sets, so <math|A> is a union of products of open
+    sets.
+  </solution*>
+
+  <\exercise>
+    Let <math|X> be a set and <math|d> the distance function on<nbsp><math|X>
+    defined by <math|d<around*|(|x,x|)>=0>, <math|d<around*|(|x,y|)>=1> for
+    <math|x\<neq\>y>. Prove that each subset of <math|<around*|(|X,d|)>> is
+    open.
+  </exercise>
+
+  <\solution*>
+    Let <math|A\<subset\>X> and <math|a\<in\>A>. Then, the open ball
+    <math|B<around*|(|a;0.5|)>> has precisely one element, namely <math|a>.
+    Therefore,
+
+    <\equation*>
+      a\<in\>B<around*|(|a;0.5|)>=<around*|{|a|}>\<subset\>A.
+    </equation*>
+
+    We conclude that <math|A> is a neighborhood at<nbsp><math|a>, and
+    consequently <math|A> is open.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X,d<rsub|1>|)>>, <math|<around*|(|Y,d<rsub|2>|)>> be
+    metric spaces. Let <math|f:X\<rightarrow\>Y> be continuous. Define a
+    distance function <math|d> on <math|X\<times\>Y> in the standard manner.
+    Prove that the graph<nbsp><math|\<Gamma\><rsub|f>> of<nbsp><math|f> is a
+    closed subset of <math|<around*|(|X\<times\>Y,d|)>>.
+  </exercise>
+
+  <\solution*>
+    By the definition of graph,
+
+    <\equation*>
+      \<Gamma\><rsub|f>=<around*|{|<around*|(|x,y|)>\<in\>X\<times\>Y\<barsuchthat\>y=f<around*|(|x|)>|}>.
+    </equation*>
+
+    Let <math|<around*|(|x,y|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>
+    and <math|\<varepsilon\>=d<rsub|2><around*|(|y,f<around*|(|x|)>|)>>.
+    Then, <math|\<varepsilon\>\<gtr\>0> because
+    <math|y\<neq\>f<around*|(|x|)>>. Since <math|f> is continuous, there
+    exists a <math|\<delta\>\<gtr\>0> such that whenever
+    <math|d<rsub|1><around*|(|x,x<rprime|'>|)>\<less\>\<delta\>>, we have
+    <math|d<rsub|2><around*|(|f<around*|(|x|)>,f<around*|(|x<rprime|'>|)>|)>\<less\><frac|\<varepsilon\>|2>>.
+    Let <math|\<delta\><rprime|'>=min<around*|{|\<delta\>,<frac|\<varepsilon\>|2>|}>>
+    and <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>B<around*|(|<around*|(|x,y|)>;\<delta\><rprime|'>|)>>.
+    Then, <math|d<around*|(|<around*|(|x,y|)>,<around*|(|x<rprime|'>,y<rprime|'>|)>|)>\<less\>\<delta\><rprime|'>>,
+    which implies <math|d<rsub|1><around*|(|x,x<rprime|'>|)>\<less\>\<delta\><rprime|'>\<leqslant\>\<delta\>>
+    and <math|d<rsub|2><around*|(|y,y<rprime|'>|)>\<less\>\<delta\><rprime|'>\<leqslant\><frac|\<varepsilon\>|2>>.
+    From <math|d<rsub|1><around*|(|x,x<rprime|'>|)>\<less\>\<delta\>> we
+    obtain <math|d<rsub|2><around*|(|f<around*|(|x|)>,f<around*|(|x<rprime|'>|)>|)>\<less\><frac|\<varepsilon\>|2>>.
+    From
+
+    <\equation*>
+      <wide*|d<rsub|2><around*|(|y,f<around*|(|x|)>|)>|\<wide-underbrace\>><rsub|=\<varepsilon\>>\<leqslant\><wide*|d<rsub|2><around*|(|y,y<rprime|'>|)>|\<wide-underbrace\>><rsub|\<less\>\<varepsilon\>/2>+d<rsub|2><around*|(|y<rprime|'>,f<around*|(|x<rprime|'>|)>|)>+<wide*|d<rsub|2><around*|(|f<around*|(|x<rprime|'>|)>,f<around*|(|x|)>|)>|\<wide-underbrace\>><rsub|\<less\>\<varepsilon\>/2>
+    </equation*>
+
+    we obtain <math|d<rsub|2><around*|(|y<rprime|'>,f<around*|(|x<rprime|'>|)>|)>\<gtr\>0>.
+    Therefore, <math|y<rprime|'>\<neq\>f<around*|(|x<rprime|'>|)>> and thus
+    <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>.
+    We have proved <math|B<around*|(|<around*|(|x,y|)>;\<delta\><rprime|'>|)>\<subset\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>,
+    and thus <math|\<complement\><around*|(|\<Gamma\><rsub|f>|)>> is a
+    neighborhood at <math|<around*|(|x,y|)>>. We conclude that
+    <math|\<complement\><around*|(|\<Gamma\><rsub|f>|)>> is open, so
+    <math|\<Gamma\><rsub|f>> is closed.
+  </solution*>
+
+  <\exercise>
+    Let <math|f:\<bbb-R\>\<rightarrow\>\<bbb-R\>> be defined by
+
+    <\equation*>
+      <tabular|<tformat|<cwith|1|1|1|-1|cell-bsep|0.2fn>|<cwith|1|-1|1|-1|cell-lsep|0>|<cwith|1|-1|1|-1|cell-rsep|0>|<table|<row|<cell|f<around*|(|x|)>>|<cell|\<nosymbol\>=\<nosymbol\>>|<cell|<frac|1|x>,\<nosymbol\>>|<cell|x\<gtr\>0,>>|<row|<cell|f<around*|(|x|)>>|<cell|\<nosymbol\>=\<nosymbol\>>|<cell|0,>|<cell|x\<leqslant\>0.>>>>>
+    </equation*>
+
+    Prove that the graph<nbsp><math|\<Gamma\><rsub|f>> is a closed subset of
+    <math|<around*|(|\<bbb-R\><rsup|2>,d|)>>, but that <math|f> is not
+    continuous.
+  </exercise>
+
+  <\solution*>
+    Let <math|<around*|(|x,y|)>\<in\>\<bbb-R\><rsup|2>> such that
+    <math|y\<neq\>f<around*|(|x|)>>. Let <math|\<varepsilon\>=<around*|\||y-f<around*|(|x|)>|\|>\<gtr\>0>.
+
+    <\itemize>
+      <item>If <math|x\<less\>0>, then <math|f<around*|(|x|)>=0>, so we have
+      <math|<around*|\||y|\|>\<gtr\>0>. Let
+      <math|\<delta\>=min<around*|{|<around*|\||x|\|>,<around*|\||y|\|>|}>>.
+      Then, for any point <math|<around*|(|x<rprime|'>,y<rprime|'>|)>> in the
+      open ball <math|B<around*|(|<around*|(|x,y|)>;\<delta\>|)>>, we have
+      <math|<around*|\||x-x<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><around*|\||x|\|>>
+      and <math|<around*|\||y-y<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><around*|\||y|\|>>.
+      From
+
+      <\equation*>
+        x<rprime|'>-x\<leqslant\><around*|\||x-x<rprime|'>|\|>\<less\><around*|\||x|\|>=-x
+      </equation*>
+
+      we obtain <math|x<rprime|'>\<less\>0>, and consequently
+      <math|f<around*|(|x<rprime|'>|)>=0>. Then, from
+
+      <\equation*>
+        <around*|\||y|\|>\<leqslant\><around*|\||y-y<rprime|'>|\|>+<around*|\||y<rprime|'>|\|>
+      </equation*>
+
+      we obtain <math|<around*|\||y<rprime|'>-f<around*|(|x<rprime|'>|)>|\|>=<around*|\||y<rprime|'>|\|>\<gtr\>0>.
+      Therefore, <math|y<rprime|'>\<neq\>f<around*|(|x<rprime|'>|)>>, so
+      <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>.
+
+      <item>If <math|x\<gtr\>0>, then <math|f<around*|(|x|)>=<frac|1|x>>, so
+      we have <math|<around*|\||y-<frac|1|x>|\|>\<gtr\>0>. Let
+      <math|\<varepsilon\>=<around*|\||y-<frac|1|x>|\|>> and
+      <math|\<delta\>=min<around*|{|<frac|\<varepsilon\>|2>,<frac|\<varepsilon\>*x<rsup|2>|2+\<varepsilon\>*x>|}>\<gtr\>0>.
+      Then, for any point <math|<around*|(|x<rprime|'>,y<rprime|'>|)>> in the
+      open ball <math|B<around*|(|<around*|(|x,y|)>;\<delta\>|)>>, we have
+
+      <\equation*>
+        x-x<rprime|'>\<leqslant\><around*|\||x-x<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><frac|\<varepsilon\>*x<rsup|2>|2+\<varepsilon\>*x>\<less\>x,
+      </equation*>
+
+      which implies <math|x<rprime|'>\<gtr\>x-\<delta\>\<gtr\>0>.
+      Consequently, <math|f<around*|(|x<rprime|'>|)>=<frac|1|x<rprime|'>>>.
+      Therefore,
+
+      <\equation*>
+        <around*|\||f<around*|(|x|)>-f<around*|(|x<rprime|'>|)>|\|>=<around*|\||<frac|1|x>-<frac|1|x<rprime|'>>|\|>=<frac|<around*|\||x-x<rprime|'>|\|>|x*x<rprime|'>>\<less\><frac|\<delta\>|x*<around*|(|x-\<delta\>|)>>=<frac|1|x*<around*|(|<frac|x|\<delta\>>-1|)>>.
+      </equation*>
+
+      Since <math|<frac|x|\<delta\>>-1\<geqslant\><frac|2+\<varepsilon\>*x|\<varepsilon\>*x>-1=<frac|2|\<varepsilon\>*x>>,
+      we have
+
+      <\equation*>
+        <around*|\||f<around*|(|x|)>-f<around*|(|x<rprime|'>|)>|\|>\<less\><frac|1|x*<frac|2|\<varepsilon\>*x>>=<frac|\<varepsilon\>|2>.
+      </equation*>
+
+      In addition, we have <math|<around*|\||y-y<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><frac|\<varepsilon\>|2>>.
+      From
+
+      <\equation*>
+        <wide*|<around*|\||y-f<around*|(|x|)>|\|>|\<wide-underbrace\>><rsub|=\<varepsilon\>>\<leqslant\><wide*|<around*|\||y-y<rprime|'>|\|>|\<wide-underbrace\>><rsub|\<less\>\<varepsilon\>/2>+<around*|\||y<rprime|'>-f<around*|(|x<rprime|'>|)>|\|>+<wide*|<around*|\||f<around*|(|x|)>-f<around*|(|x<rprime|'>|)>|\|>|\<wide-underbrace\>><rsub|\<less\>\<varepsilon\>/2>
+      </equation*>
+
+      we obtain <math|<around*|\||y<rprime|'>-f<around*|(|x<rprime|'>|)>|\|>\<gtr\>0>.
+      Therefore, <math|y<rprime|'>\<neq\>f<around*|(|x<rprime|'>|)>> and thus
+      <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>.
+
+      <item>If <math|x=0>, then <math|f<around*|(|x|)>=0>, so we have
+      <math|<around*|\||y|\|>\<gtr\>0>. Let
+      <math|\<delta\>=min<around*|{|<around*|\||<frac|1|2*y>|\|>,<around*|\||y|\|>|}>\<gtr\>0>.
+      Then, for any point <math|<around*|(|x<rprime|'>,y<rprime|'>|)>> in the
+      open ball <math|B<around*|(|<around*|(|x,y|)>;\<delta\>|)>>, we have
+      <math|<around*|\||x-x<rprime|'>|\|>\<less\>\<delta\>> and
+      <math|<around*|\||y-y<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><around*|\||y|\|>>.
+
+      <\itemize>
+        <item>If <math|x<rprime|'>\<leqslant\>0>, then
+        <math|f<around*|(|x<rprime|'>|)>=0>. From
+        <math|<around*|\||y-y<rprime|'>|\|>\<less\>\<delta\>\<leqslant\><around*|\||y|\|>>
+        we obtain <math|y<rprime|'>\<neq\>0=f<around*|(|x<rprime|'>|)>>.
+        Therefore, <math|y<rprime|'>\<neq\>f<around*|(|x<rprime|'>|)>> and
+        thus <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>.
+
+        <item>If <math|x<rprime|'>\<gtr\>0>, then
+        <math|f<around*|(|x<rprime|'>|)>=<frac|1|x>>. From
+        <math|<around*|\||x-x<rprime|'>|\|>\<less\>\<delta\>> we obtain
+        <math|x<rprime|'>\<less\>\<delta\>\<leqslant\><around*|\||<frac|1|2*y>|\|>>,
+        and thus <math|f<around*|(|x<rprime|'>|)>=<frac|1|x<rprime|'>>\<gtr\><around*|\||2*y|\|>>.
+        From <math|<around*|\||y-y<rprime|'>|\|>\<less\>\<delta\>> we obtain
+        <math|y<rprime|'>\<less\>y+\<delta\>\<leqslant\>y+<around*|\||y|\|>\<leqslant\><around*|\||2*y|\|>>.
+        Therefore, <math|y<rprime|'>\<less\><around*|\||2*y|\|>\<less\>f<around*|(|x<rprime|'>|)>>,
+        which implies <math|y<rprime|'>\<neq\>f<around*|(|x<rprime|'>|)>>, so
+        <math|<around*|(|x<rprime|'>,y<rprime|'>|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>.
+      </itemize>
+    </itemize>
+
+    We have proved that for any <math|<around*|(|x,y|)>\<in\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>,
+    there exists a <math|\<delta\>\<gtr\>0> such that
+    <math|B<around*|(|<around*|(|x,y|)>;\<delta\>|)>\<subset\>\<complement\><around*|(|\<Gamma\><rsub|f>|)>>,
+    and thus <math|\<complement\><around*|(|\<Gamma\><rsub|f>|)>> is a
+    neighborhood at <math|<around*|(|x,y|)>>. We conclude that
+    <math|\<complement\><around*|(|\<Gamma\><rsub|f>|)>> is open, so
+    <math|\<Gamma\><rsub|f>> is closed.
+  </solution*>
+
+  <\exercise>
+    Let <math|A> be a closed, non-empty subset of real numbers that has a
+    lower bound. Prove that <math|A> contains its greatest lower bound.
+  </exercise>
+
+  <\solution*>
+    Let <math|b=inf A>. By Corollary<nbsp>5.7, there is a sequence
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> of real numbers such that
+    <math|a<rsub|n>\<in\>A> for each<nbsp><math|n> and <math|lim<rsub|n>
+    a<rsub|n>=b>. Because <math|A> is closed, by Theorem<nbsp>6.8, we have
+    <math|b\<in\>A>.
+  </solution*>
+
+  <\exercise>
+    Let <math|A> be a subset of a metric space. Let <math|A<rprime|'>> be the
+    set of limit points of <math|A> and <math|A<rsup|i>> the set of isolated
+    points of<nbsp><math|A>. Prove that <math|A<rprime|'>\<cap\>A<rsup|i>=\<varnothing\>>
+    and <math|A\<subset\>A<rprime|'>\<cup\>A<rsup|i>>. The set
+    <math|<wide|A|\<bar\>>=A<rprime|'>\<cup\>A<rsup|i>> is called the
+    <dfn|closure> of<nbsp><math|A>. Prove that <math|x\<in\><wide|A|\<bar\>>>
+    if and only if there is a sequence of points of<nbsp><math|A> which
+    converges to<nbsp><math|x>. Prove that if <math|F> is a closed set such
+    that <math|A\<subset\>F> then <math|<wide|A|\<bar\>>\<subset\>F>. Prove
+    that <math|<wide|A|\<bar\>>> is the intersection of all such closed
+    sets<nbsp><math|F> and hence is closed.
+  </exercise>
+
+  <\note*>
+    If a point <math|x\<in\>A> and there exists a neighborhood
+    at<nbsp><math|x> that does not contain any other point in<nbsp><math|A>,
+    then <math|x> is an isolated point of<nbsp><math|A>.
+  </note*>
+
+  <\solution*>
+    (Part 1.) By definition, no point can be both a limit point and an
+    isolated point. Therefore, <math|A<rprime|'>\<cap\>A<rsup|i>=\<varnothing\>>.
+    Let <math|x\<in\>A>.
+
+    <\itemize>
+      <item>If there exists a neighborhood<nbsp><math|M> at<nbsp><math|x>
+      which does not contain any point in<nbsp><math|A> other
+      than<nbsp><math|x>, then <math|x> is an isolated point.
+
+      <item>Otherwise, for all neighborhood<nbsp><math|M> at<nbsp><math|x>,
+      <math|M> contains a point in<nbsp><math|A> other than<nbsp><math|x>, in
+      which case <math|x> is a limit point.
+    </itemize>
+
+    Therefore, <math|x> is either a limit point or an isolated point, so
+    <math|x\<in\>A<rprime|'>\<cup\>A<rsup|i>>.
+
+    (Part<nbsp>2). The \Ponly if\Q part is proved in the book, under
+    Definition<nbsp>6.6. Suppose that there is a sequence of points
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> of<nbsp><math|A> which converges
+    to<nbsp><math|x>.\ 
+
+    <\itemize>
+      <item>If <math|x\<in\>A>, then by Part<nbsp>1 we obtain
+      <math|x\<in\>A<rprime|'>\<cup\>A<rsup|i>>.
+
+      <item>Suppose <math|x\<nin\>A>. Let <math|M> be a neighborhood
+      at<nbsp><math|x>. Then, there exists a <math|\<delta\>\<gtr\>0> such
+      that <math|B<around*|(|x;\<delta\>|)>\<subset\>M>. Because the sequence
+      <math|a<rsub|1>,a<rsub|2>,\<ldots\>> converges to<nbsp><math|x>, there
+      exists a <math|N\<gtr\>0> such that whenever <math|n\<gtr\>N>, we have
+      <math|d<around*|(|a<rsub|n>,x|)>\<less\>\<delta\>>. Therefore we can
+      find a point <math|a<rsub|N+1>\<in\>A> that is not <math|x> in the
+      neighborhood<nbsp><math|M>. Since <math|M> is arbitrary, <math|x> is a
+      limit point, so <math|x\<in\>A<rprime|'>>.
+    </itemize>
+
+    We conclude that <math|x\<in\>A<rprime|'>\<cup\>A<rsup|i>>.
+
+    (Part<nbsp>3.) Since <math|F> is closed, we know that
+    <math|\<complement\><around*|(|F|)>> is open. Suppose
+    <math|A\<subset\>F>. Let <math|x\<in\><wide|A|\<bar\>>>.
+
+    <\itemize>
+      <item>If <math|x\<in\>A>, then it is obvious that <math|x\<in\>F>.
+
+      <item>If <math|x\<nin\>A>, then <math|x\<in\>A<rprime|'>> (since by
+      definition we have <math|A<rsup|i>\<subset\>A>). Assume that
+      <math|x\<nin\>F>, i.e., <math|x\<in\>\<complement\><around*|(|F|)>>.
+      Because <math|\<complement\><around*|(|F|)>> is open,
+      <math|\<complement\><around*|(|F|)>> is a neighborhood
+      at<nbsp><math|x>. However, from <math|x\<in\>A<rprime|'>> we know that
+      any neighborhood at<nbsp><math|x> contains a point in<nbsp><math|A>
+      other than<nbsp><math|x>, so there exists
+      <math|y\<in\>\<complement\><around*|(|F|)>> such that <math|y\<neq\>x>
+      and <math|y\<in\>A>. We obtain the contradiction
+      <math|y\<in\>A\<subset\>F> and <math|y\<nin\>F>. Therefore, the
+      assumption is false, so we must have <math|x\<in\>F>.
+    </itemize>
+
+    We conclude that if <math|F> is closed and <math|A\<subset\>F>, then
+    <math|<wide|A|\<bar\>>\<subset\>F>.
+
+    (Part<nbsp>4.) Let <math|<with|font|cal|S>=<around*|{|F\<in\>2<rsup|A>\<barsuchthat\>A\<subset\>F<text|
+    and <math|F> is closed>|}>>. We will prove that
+    <math|<wide|A|\<bar\>>=<big|cap><rsub|F\<in\><with|font|cal|S>>F>. It
+    suffices to prove that <math|x\<in\><wide|A|\<bar\>>> if and only if for
+    all <math|F\<in\><with|font|cal|S>>, we have <math|x\<in\>F>. The \Ponly
+    if\Q part is proved by Part<nbsp>3. To prove the \Pif\Q part, suppose
+    <math|x\<nin\><wide|A|\<bar\>>> and we shall find a set in
+    <math|<with|font|cal|S>> which does not contain <math|x>. Note that
+    <math|x\<nin\><wide|A|\<bar\>>> implies 1) <math|x\<nin\>A>; 2) there
+    exists a neighborhood<nbsp><math|M> at<nbsp><math|x> such that <math|M>
+    does not contain any point in<nbsp><math|A>. Therefore, there exists an
+    open ball <math|B<around*|(|x;\<delta\>|)>\<subset\>M>, where
+    <math|\<delta\>\<gtr\>0> and <math|B<around*|(|x;\<delta\>|)>\<cap\>A=\<varnothing\>>.
+    Let <math|F\<subset\><with|font|cal|S>>. Then, since <math|F> is closed,
+    <math|\<complement\><around*|(|F|)>> is open. Let
+    <math|F<rprime|'>=F\<setminus\>B<around*|(|x;\<delta\>|)>=F\<cap\>\<complement\><around*|(|B<around*|(|x;\<delta\>|)>|)>>.
+    By Theorem<nbsp>6.2, <math|B<around*|(|x;\<delta\>|)>> is an open set,
+    and by Theorem<nbsp>6.4,
+
+    <\equation*>
+      \<complement\><around*|(|F<rprime|'>|)>=\<complement\><around*|(|F|)>\<cup\>B<around*|(|s;\<delta\>|)>
+    </equation*>
+
+    is open. Therefore, <math|F<rprime|'>> is closed. Let
+    <math|y\<in\>A\<subset\>F>. Then, because
+    <math|B<around*|(|x;\<delta\>|)>> does not contain any point
+    in<nbsp><math|A>, we have <math|y\<in\>\<complement\><around*|(|B<around*|(|x;\<delta\>|)>|)>>.
+    Therefore, <math|y\<in\>F<rprime|'>>. Consequently,
+    <math|A\<subset\>F<rprime|'>> and <math|F<rprime|'>\<in\><with|font|cal|S>>.
+    Recall that <math|x\<in\>B<around*|(|x;\<delta\>|)>>, so
+    <math|x\<nin\>F<rprime|'>>.
+  </solution*>
 </body>
 
 <\initial>
@@ -3443,9 +3806,10 @@
     <associate|auto-12|<tuple|2|18>>
     <associate|auto-13|<tuple|2.1|18>>
     <associate|auto-14|<tuple|2.2|18>>
-    <associate|auto-15|<tuple|2.3|22>>
+    <associate|auto-15|<tuple|2.3|23>>
     <associate|auto-16|<tuple|2.4|25>>
     <associate|auto-17|<tuple|2.5|29>>
+    <associate|auto-18|<tuple|2.6|33>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -3537,6 +3901,10 @@
       <with|par-left|<quote|1tab>|2.5<space|2spc>Limits
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-17>>
+
+      <with|par-left|<quote|1tab>|2.6<space|2spc>Open sets and closed sets
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-18>>
     </associate>
   </collection>
 </auxiliary>
