@@ -90,6 +90,10 @@
     <with|par-left|1tab|2.6<space|2spc>Open sets and closed sets
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-18>>
+
+    <with|par-left|1tab|2.7<space|2spc>Subspaces and equivalence of metric
+    spaces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-19>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -3750,11 +3754,11 @@
     if\Q part is proved by Part<nbsp>3. To prove the \Pif\Q part, suppose
     <math|x\<nin\><wide|A|\<bar\>>> and we shall find a set in
     <math|<with|font|cal|S>> which does not contain <math|x>. Note that
-    <math|x\<nin\><wide|A|\<bar\>>> implies 1) <math|x\<nin\>A>; 2) there
-    exists a neighborhood<nbsp><math|M> at<nbsp><math|x> such that <math|M>
-    does not contain any point in<nbsp><math|A>. Therefore, there exists an
-    open ball <math|B<around*|(|x;\<delta\>|)>\<subset\>M>, where
-    <math|\<delta\>\<gtr\>0> and <math|B<around*|(|x;\<delta\>|)>\<cap\>A=\<varnothing\>>.
+    <math|x\<nin\><wide|A|\<bar\>>> implies 1)<nbsp><math|x\<nin\>A>;
+    2)<nbsp>there exists a neighborhood<nbsp><math|M> at<nbsp><math|x> such
+    that <math|M> does not contain any point in<nbsp><math|A>. Therefore,
+    there exists an open ball <math|B<around*|(|x;\<delta\>|)>\<subset\>M>,
+    where <math|\<delta\>\<gtr\>0> and <math|B<around*|(|x;\<delta\>|)>\<cap\>A=\<varnothing\>>.
     Let <math|F\<subset\><with|font|cal|S>>. Then, since <math|F> is closed,
     <math|\<complement\><around*|(|F|)>> is open. Let
     <math|F<rprime|'>=F\<setminus\>B<around*|(|x;\<delta\>|)>=F\<cap\>\<complement\><around*|(|B<around*|(|x;\<delta\>|)>|)>>.
@@ -3773,6 +3777,311 @@
     <math|A\<subset\>F<rprime|'>> and <math|F<rprime|'>\<in\><with|font|cal|S>>.
     Recall that <math|x\<in\>B<around*|(|x;\<delta\>|)>>, so
     <math|x\<nin\>F<rprime|'>>.
+  </solution*>
+
+  <subsection|Subspaces and equivalence of metric spaces>
+
+  <\exercise>
+    For each pair of points <math|a,b\<in\>\<bbb-R\><rsup|n>>, prove that
+    there is a topological equivalence between
+    <math|<around*|(|\<bbb-R\><rsup|n>,d|)>> and itself defined by inverse
+    functions <math|f:\<bbb-R\><rsup|n>\<rightarrow\>\<bbb-R\><rsup|n>> and
+    <math|g:\<bbb-R\><rsup|n>\<rightarrow\>\<bbb-R\><rsup|n>> such that
+    <math|f<around*|(|a|)>=b>. [<with|font-shape|italic|Hint>: If
+    <math|a=<around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|n>|)>>,
+    <math|b=<around*|(|b<rsub|1>,b<rsub|2>,\<ldots\>,b<rsub|n>|)>>, define
+    <math|f> by setting <math|f<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>=<around*|(|x<rsub|1>+b<rsub|1>-a<rsub|1>,x<rsub|2>+b<rsub|2>-a<rsub|2>,\<ldots\>,x<rsub|n>+b<rsub|n>-a<rsub|n>|)>>.]
+  </exercise>
+
+  <\solution*>
+    Let <math|a=<around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|n>|)>> and
+    <math|b=<around*|(|b<rsub|1>,b<rsub|2>,\<ldots\>,b<rsub|n>|)>>. Define
+    <math|f> by the correspondence
+
+    <\equation*>
+      f<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>=<around*|(|x<rsub|1>+b<rsub|1>-a<rsub|1>,x<rsub|2>+b<rsub|2>-a<rsub|2>,\<ldots\>,x<rsub|n>+b<rsub|n>-a<rsub|n>|)>,
+    </equation*>
+
+    and define <math|g> by the correspondence
+
+    <\equation*>
+      g<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>=<around*|(|x<rsub|1>-b<rsub|1>+a<rsub|1>,x<rsub|2>-b<rsub|2>+a<rsub|2>,\<ldots\>,x<rsub|n>-b<rsub|n>+a<rsub|n>|)>.
+    </equation*>
+
+    It can be verified that <math|f<around*|(|a|)>=b> and for any
+    <math|x\<in\>\<bbb-R\><rsup|n>> we have
+    <math|f<around*|(|g<around*|(|x|)>|)>=x> and
+    <math|g<around*|(|f<around*|(|x|)>|)>=x>.
+  </solution*>
+
+  <\exercise>
+    Prove that the open interval <math|<around*|(|-\<mathpi\>/2,\<mathpi\>/2|)>>,
+    considered as a subspace of the real numbr system, is topologically
+    equivalent to the real number system. Prove that any two open intervals,
+    considered as subspaces of the real number system, are topologically
+    equivalent. Prove that any open interval, considered as a subspace of the
+    real number system, is topologically equivalent to the real number
+    system.
+  </exercise>
+
+  <\solution*>
+    (Part<nbsp>1.) Observe that <math|arctan:\<bbb-R\>\<rightarrow\><around*|(|-\<mathpi\>/2,\<mathpi\>/2|)>>
+    is a continuous, one-one and onto function. Therefore, <math|\<bbb-R\>>
+    and <math|<around*|(|-\<mathpi\>/2,\<mathpi\>/2|)>> are topologically
+    equivalent.
+
+    (Part<nbsp>2.) Let <math|<around*|(|a,b|)>> and <math|<around*|(|c,d|)>>
+    be two intervals. Then, define <math|f:<around*|(|a,b|)>\<rightarrow\><around*|(|c,d|)>>
+    by the correspondence
+
+    <\equation*>
+      f<around*|(|x|)>=<around*|(|d-c|)>*<frac|x-a|b-a>+c.
+    </equation*>
+
+    Then, <math|f> is continuous and <math|g:<around*|(|c,d|)>\<rightarrow\><around*|(|a,b|)>>
+    defined by the correspondence
+
+    <\equation*>
+      g<around*|(|x|)>=<around*|(|b-a|)>*<frac|x-c|d-c>+a
+    </equation*>
+
+    is the inverse of<nbsp><math|f>. Therefore, the two intervals are
+    topologically equivalent.
+
+    (Part<nbsp>3.) Because topological equivalence is a transitive (proved by
+    Exercise<nbsp>5), by Part<nbsp>1 and 2 we conclude that any interval is
+    topological equivalent to <math|<around*|(|-\<mathpi\>/2,\<mathpi\>/2|)>>
+    an thus topological equivalent to <math|\<bbb-R\>>.
+  </solution*>
+
+  <\exercise>
+    For <math|i=1,2,\<ldots\>,n>, let the metric space
+    <math|<around*|(|X<rsub|i>,d<rsub|i>|)>> be topologically equivalent to
+    the metric space <math|<around*|(|Y<rsub|i>,d<rsub|i>|)>>. Prove that if
+
+    <\equation*>
+      X=<big|prod><rsub|i=1><rsup|n>X<rsub|i><math-and|<text|<space|1em>and<space|1em>>>Y=<big|prod><rsub|i=1><rsup|n>Y<rsub|i>
+    </equation*>
+  </exercise>
+
+  are converted into metric spaces in the standard manner, then these two
+  metric spaces are topologically equivalent.
+
+  <\solution*>
+    From topological equivalence, we know that for <math|i=1,2,\<ldots\>,n>,
+    there exists inverse functions <math|f<rsub|i>:X<rsub|i>\<rightarrow\>Y<rsub|i>>
+    and <math|g<rsub|i>:Y<rsub|i>\<rightarrow\>X<rsub|i>> which are
+    continuous. Define <math|f:X\<rightarrow\>Y> by the correspondence
+
+    <\equation*>
+      f<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>=<around*|(|f<rsub|1><around*|(|x<rsub|1>|)>,f<rsub|2><around*|(|x<rsub|2>|)>,\<ldots\>,f<rsub|n><around*|(|x<rsub|n>|)>|)>,
+    </equation*>
+
+    and define <math|g:Y\<rightarrow\>X> by the correspondence
+
+    <\equation*>
+      g<around*|(|y<rsub|1>,y<rsub|2>,\<ldots\>,y<rsub|n>|)>=<around*|(|g<rsub|1><around*|(|y<rsub|1>|)>,g<rsub|2><around*|(|y<rsub|2>|)>,\<ldots\>,g<rsub|n><around*|(|y<rsub|n>|)>|)>.
+    </equation*>
+
+    It can be verified that <math|f> and <math|g> are inverse functions. By
+    Exercise<nbsp>2 in Section 2, we obtain that <math|f> and <math|g> are
+    continuous. Therefore, <math|X> and <math|Y> are topologically
+    equivalent.
+  </solution*>
+
+  <\exercise>
+    The open <math|n>-cube is the set of all points
+    <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>\<in\>\<bbb-R\><rsup|n>>
+    such that <math|0\<less\>x<rsub|i>\<less\>1> for
+    <math|i=1,2,\<ldots\>,n>. Prove that the open <math|n>-cube, considered
+    as a subspace of <math|<around*|(|\<bbb-R\><rsup|n>,d|)>>, is
+    topologically equivalent to <math|<around*|(|\<bbb-R\><rsup|n>,d|)>>.
+    [<with|font-shape|italic|Hint:> Use the results of Exercises<nbsp>2 and
+    3.]
+  </exercise>
+
+  <\solution*>
+    The <math|n>-cube is a subspace of <math|<around*|(|\<bbb-R\><rsup|n>,d|)>>.
+    Its underlying set is <math|<around*|(|0,1|)><rsup|n>>. By
+    Exercise<nbsp>2, <math|<around*|(|0,1|)>> is topologically equivalent to
+    <math|\<bbb-R\>>. Furthermore, by Exercise<nbsp>3 we obtain that
+    <math|<around*|(|0,1|)><rsup|n>> is topologically equivalent to
+    <math|\<bbb-R\><rsup|n>>.
+  </solution*>
+
+  <\exercise>
+    Let <math|X<math-up|R>Y> mean that the metric space<nbsp><math|X> is
+    isometric to the metric space<nbsp><math|Y>. Prove that:
+    (i)<nbsp><math|X<math-up|R>X>; (ii)<nbsp>if <math|X<math-up|R>Y> then
+    <math|Y<math-up|R>X>; (iii)<nbsp>if <math|X<math-up|R>Y> and
+    <math|Y<math-up|R>Z> then <math|X<math-up|R>Z>. Do the same if
+    <math|X<math-up|R>Y> means that the metric space<nbsp><math|X> is
+    topologically equivalent to the metric space<nbsp><math|Y>.
+  </exercise>
+
+  <\solution*>
+    \;
+
+    <\enumerate-roman>
+      <item>The identity function <math|i<rsub|X>:X\<rightarrow\>X> is
+      continuous (Theorem<nbsp>3.5) and invertible (the inverse is itself).
+      Therefore, <math|X<math-up|R>X>.
+
+      <item>If <math|X<math-up|R>Y>, then there exists inverse functions
+      <math|f:X\<rightarrow\>Y> and <math|g:Y\<rightarrow\>X> which are
+      continuous. By definition of topological equivalence, we obtain
+      <math|Y<math-up|R>X>.
+
+      <item>if <math|X<math-up|R>Y> and <math|Y<math-up|R>Z>, then there
+      exists functions <math|f:X\<rightarrow\>Y> and
+      <math|g:Y\<rightarrow\>Z> which are both continuous and invertible. By
+      Corollary<nbsp>3.7, we obtain <math|f*g:X\<rightarrow\>Z> is
+      continuous. Observe that <math|g<rsup|-1>*f<rsup|-1>> is the inverse of
+      <math|f*g>. Therefore, <math|X<math-up|R>Z>.
+    </enumerate-roman>
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|Y,d<rprime|'>|)>> be a subspace of the metric space
+    <math|<around*|(|X,d|)>>. Prove that a subset
+    <math|O<rprime|'>\<subset\>Y> is an open set of
+    <math|<around*|(|Y,d<rprime|'>|)>> if and only if there is an open subset
+    <math|O> of <math|<around*|(|X,d|)>> such that
+    <math|O<rprime|'>=Y\<cap\>O>. Prove that a subset
+    <math|F<rprime|'>\<subset\>Y> is a closed subset of
+    <math|<around*|(|Y,d<rprime|'>|)>> if and only if there is a closed
+    subset <math|F> of <math|<around*|(|X,d|)>> such that
+    <math|F<rprime|'>=Y\<cap\>F>. For a point <math|a\<in\>Y>, prove that a
+    subset <math|N<rprime|'>\<subset\>Y> is a neighborhood of<nbsp><math|a>
+    if and only if there is a neighborhood<nbsp><math|N> of<nbsp><math|a> in
+    <math|<around*|(|X,d|)>> such that <math|N<rprime|'>=Y\<cap\>N>.
+  </exercise>
+
+  <\lemma*>
+    Let <math|B<rsub|X><around*|(|a;\<delta\><rsub|a>|)>=<around*|{|x\<in\>X\<barsuchthat\>d<around*|(|a,x|)>\<less\>\<delta\><rsub|a>|}>>
+    and <math|B<rsub|Y><around*|(|a;\<delta\><rsub|a>|)>=<around*|{|x\<in\>Y\<barsuchthat\>d<rprime|'><around*|(|a,x|)>\<less\>\<delta\><rsub|a>|}>>.
+    Then
+
+    <\equation*>
+      Y\<cap\>B<rsub|X><around*|(|x;\<delta\>|)>=B<rsub|Y><around*|(|x;\<delta\>|)>.
+    </equation*>
+  </lemma*>
+
+  <\proof>
+    \;
+
+    <\equation*>
+      x\<in\>Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>\<Leftrightarrow\>y\<in\>Y\<wedge\>d<around*|(|x,a|)>\<less\>\<delta\>\<Leftrightarrow\>d<rprime|'><around*|(|x,a|)>\<less\>d\<Leftrightarrow\>y\<in\>B<rsub|Y><around*|(|a;\<delta\>|)>
+    </equation*>
+  </proof>
+
+  <\solution*>
+    (Part<nbsp>1.) To prove the \Ponly if\Q part, suppose that
+    <math|O<rprime|'>> is an open set. By Theorem<nbsp>6.2,
+    <math|O<rprime|'>> is a union of open balls (in metric space
+    <math|<around*|(|Y,d<rprime|'>|)>>), i.e.,
+    <math|O<rprime|'>=<big|cup><rsub|a\<in\>O<rprime|'>>B<rsub|Y><around*|(|a;\<delta\><rsub|a>|)>>.
+    In metric space <math|<around*|(|X,d|)>>, using the
+    same<nbsp><math|\<delta\><rsub|a>> for each<nbsp><math|a>, we can
+    construct another open set <math|O=<big|cup><rsub|a\<in\>O<rprime|'>>B<rsub|X><around*|(|a;\<delta\><rsub|a>|)>>.
+    By the lemma, we have
+
+    <\equation*>
+      O<rprime|'>=<big|cup><rsub|a\<in\>O<rprime|'>>B<rsub|Y><around*|(|a;\<delta\><rsub|a>|)>=<big|cup><rsub|a\<in\>O<rprime|'>>Y\<cap\><around*|[|B<rsub|X><around*|(|a;\<delta\><rsub|a>|)>|]>=Y\<cap\><big|cup><rsub|a\<in\>O<rprime|'>>B<rsub|X><around*|(|a;\<delta\><rsub|a>|)>=Y\<cap\>O.
+    </equation*>
+
+    [See Exercise<nbsp>1f in Chapter<nbsp>1, Section<nbsp>5.]
+
+    To prove the \Pif\Q part, suppose that there exists an open set <math|O>
+    in <math|<around*|(|X,d|)>> such that <math|O<rprime|'>=Y\<cap\>O>. Let
+    <math|x\<in\>O<rprime|'>>. Then, <math|x\<in\>Y> and <math|x\<in\>O>.
+    Since <math|O> is open, there exists an open ball
+    <math|B<rsub|X><around*|(|x;\<delta\>|)>\<subset\>O> where
+    <math|\<delta\>\<gtr\>0>. By the lemma, we have
+    <math|B<rsub|Y><around*|(|x;\<delta\>|)>>=<math|Y\<cap\>B<rsub|X><around*|(|x;\<delta\>|)>\<subset\>Y\<cap\>O=O<rprime|'>>.
+    Therefore, <math|O<rprime|'>> is a neighborhood at<nbsp><math|x>. We
+    conclude that <math|O<rprime|'>> is an open set.
+
+    (Part<nbsp>2.) <math|F<rprime|'>> is closed in
+    <math|<around*|(|Y,d<rprime|'>|)>> if and only if
+    <math|\<complement\><rsub|Y><around*|(|F<rprime|'>|)>> is open in
+    <math|<around*|(|Y,d<rprime|'>|)>> if and only if (by Part<nbsp>1) there
+    exists an open set <math|O> in <math|<around*|(|X,d|)>> such that
+    <math|\<complement\><rsub|Y><around*|(|F<rprime|'>|)>=Y\<cap\>O> if and
+    only if there exists a closed set <math|F> in <math|<around*|(|X,d|)>>
+    such that <math|\<complement\><rsub|Y><around*|(|F<rprime|'>|)>=Y\<cap\>\<complement\><rsub|X><around*|(|F|)>>
+    if and only if there exists a closed set <math|F> in
+    <math|<around*|(|X,d|)>> such that <math|F<rprime|'>=Y\<cap\>F>.
+
+    (Part<nbsp>3.) Suppose <math|N<rprime|'>\<subset\>Y> is a neighborhood
+    of<nbsp><math|a>. Then, there exists a <math|\<delta\>\<gtr\>0> such that
+    <math|B<rsub|Y><around*|(|a;\<delta\>|)>\<subset\>N<rprime|'>>. Let
+    <math|N=N<rprime|'>\<cup\>B<rsub|X><around*|(|a;\<delta\>|)>>. Then,
+    <math|N> is a neighborhood at<nbsp><math|a> in <math|<around*|(|X,d|)>>.
+    By the lemma, we have <math|B<rsub|Y><around*|(|a;\<delta\>|)>\<subset\>Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>>.
+    Therefore, <math|Y\<cap\>N=Y\<cap\><around*|(|N<rprime|'>\<cup\>B<rsub|X><around*|(|a;\<delta\>|)>|)>=<around*|(|Y\<cap\>N<rprime|'>|)>\<cup\><around*|(|Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>|)>=N<rprime|'>>.
+
+    Conversely, suppose there exists a neighorhood <math|N> at<nbsp><math|a>
+    in <math|<around*|(|X,d|)>>. Then, there exists a
+    <math|\<delta\>\<gtr\>0> such that <math|B<rsub|X><around*|(|a;\<delta\>|)>\<subset\>N>.
+    Let <math|N<rprime|'>=Y\<cap\>N>. By the lemma, we have
+    <math|B<rsub|Y><around*|(|a;\<delta\>|)>=Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>>.
+    Therefore, <math|B<rsub|Y><around*|(|a;\<delta\>|)>\<subset\>N<rprime|'>>,
+    and consequently <math|N<rprime|'>> is a neighborhood at<nbsp><math|a> in
+    <math|<around*|(|Y,d<rprime|'>|)>>.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|Y,d<rprime|'>|)>> be a subspace of
+    <math|<around*|(|X,d|)>>. Let <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a
+    sequence of points of<nbsp><math|Y> and let <math|a\<in\>Y>. Prove that
+    if <math|lim<rsub|n> a<rsub|n>=a> in <math|<around*|(|Y,d<rprime|'>|)>>,
+    then <math|lim<rsub|n> a<rsub|n>=a> in <math|<around*|(|X,d|)>>. [The
+    converse if false unless one assumes that all the points mentioned lie
+    in<nbsp><math|Y>; see the next exercise.]
+  </exercise>
+
+  <\solution*>
+    Given <math|\<varepsilon\>\<gtr\>0>, since <math|lim<rsub|n> a<rsub|n>=a>
+    in <math|<around*|(|Y,d<rprime|'>|)>>, there exists a <math|N\<gtr\>0>
+    such that whenever <math|n\<gtr\>N> we have
+    <math|d<rprime|'><around*|(|a<rsub|n>,a|)>\<less\>\<varepsilon\>>. Since
+    <math|<around*|(|Y,d<rprime|'>|)>> is a subspace of
+    <math|<around*|(|X,d|)>>, <math|d<rprime|'><around*|(|a<rsub|n>,a|)>=d<around*|(|a<rsub|n>,a|)>>.
+    Therefore, whenever <math|n\<gtr\>N>, we have
+    <math|d<around*|(|a<rsub|n>,a|)>\<less\>\<varepsilon\>>. We conclude that
+    <math|lim<rsub|n> a<rsub|n>=a> in <math|<around*|(|X,d|)>>.
+  </solution*>
+
+  <\exercise>
+    Consider the subspace <math|<around*|(|\<bbb-Q\>,d<rsub|\<bbb-Q\>>|)>>
+    (the rational numbers) of <math|<around*|(|\<bbb-R\>,d|)>>. Let
+    <math|a<rsub|1>,a<rsub|2>,\<ldots\>> be a sequence of real numbers such
+    that <math|lim<rsub|n> a<rsub|n>=<sqrt|2>>. Prove that, given
+    <math|\<varepsilon\>\<gtr\>0>, there is a positive integer<nbsp><math|N>
+    such that for <math|n,m\<gtr\>N>, <math|<around*|\||a<rsub|n>-a<rsub|m>|\|>\<less\>\<varepsilon\>>.
+    Does the sequence <math|a<rsub|1>,a<rsub|2>,\<ldots\>> converge when
+    considered to be a sequence of points of
+    <math|<around*|(|\<bbb-Q\>,d<rsub|\<bbb-Q\>>|)>>?
+  </exercise>
+
+  <\solution*>
+    Given <math|\<varepsilon\>\<gtr\>0>, we have
+    <math|<frac|\<varepsilon\>|2>\<gtr\>0>. Since <math|lim<rsub|n>
+    a<rsub|n>=<sqrt|2>>. There exists an integer<nbsp><math|N> such that
+    whenever <math|n\<gtr\>N>, we have <math|<around*|\||a<rsub|n>-<sqrt|2>|\|>\<less\><frac|\<varepsilon\>|2>>.
+    Let <math|n,m\<gtr\>N>, then we have
+
+    <\equation*>
+      <around*|\||a<rsub|n>-a<rsub|m>|\|>\<leqslant\><around*|\||a<rsub|n>-<sqrt|2>|\|>+<around*|\||<sqrt|2>-a<rsub|m>|\|>\<less\><frac|\<varepsilon\>|2>+<frac|\<varepsilon\>|2>=\<varepsilon\>.
+    </equation*>
+
+    The sequence <math|a<rsub|1>,a<rsub|2>,\<ldots\>> does not converge in
+    <math|<around*|(|\<bbb-Q\>,d<rsub|\<bbb-Q\>>|)>>. For if it is not the
+    case and <math|lim<rsub|n> a<rsub|n>=a<rprime|'>\<in\>\<bbb-Q\>> in
+    <math|<around*|(|\<bbb-Q\>,d<rsub|\<bbb-Q\>>|)>>, then by Exercise<nbsp>7
+    we obtain <math|a<rprime|'>=<sqrt|2>\<nin\>\<bbb-Q\>>, which is a
+    contradiction.
   </solution*>
 </body>
 
@@ -3810,6 +4119,7 @@
     <associate|auto-16|<tuple|2.4|25>>
     <associate|auto-17|<tuple|2.5|29>>
     <associate|auto-18|<tuple|2.6|33>>
+    <associate|auto-19|<tuple|2.7|36>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
@@ -3905,6 +4215,10 @@
       <with|par-left|<quote|1tab>|2.6<space|2spc>Open sets and closed sets
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-18>>
+
+      <with|par-left|<quote|1tab>|2.7<space|2spc>Subspaces and equivalence of
+      metric spaces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-19>>
     </associate>
   </collection>
 </auxiliary>
