@@ -94,6 +94,10 @@
     <with|par-left|1tab|2.7<space|2spc>Subspaces and equivalence of metric
     spaces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-19>>
+
+    <with|par-left|1tab|2.8<space|2spc>An infinite dimensional Euclidean
+    space <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-20>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -3971,7 +3975,7 @@
     \;
 
     <\equation*>
-      x\<in\>Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>\<Leftrightarrow\>y\<in\>Y\<wedge\>d<around*|(|x,a|)>\<less\>\<delta\>\<Leftrightarrow\>d<rprime|'><around*|(|x,a|)>\<less\>d\<Leftrightarrow\>y\<in\>B<rsub|Y><around*|(|a;\<delta\>|)>
+      x\<in\>Y\<cap\>B<rsub|X><around*|(|a;\<delta\>|)>\<Leftrightarrow\>y\<in\>Y\<wedge\>d<around*|(|x,a|)>\<less\>\<delta\>\<Leftrightarrow\>d<rprime|'><around*|(|x,a|)>\<less\>d\<Leftrightarrow\>x\<in\>B<rsub|Y><around*|(|a;\<delta\>|)>
     </equation*>
   </proof>
 
@@ -4083,6 +4087,209 @@
     we obtain <math|a<rprime|'>=<sqrt|2>\<nin\>\<bbb-Q\>>, which is a
     contradiction.
   </solution*>
+
+  <subsection|An infinite dimensional Euclidean space>
+
+  <\exercise>
+    Let <math|V> be a vector space with real numbers <math|\<bbb-R\>> as
+    scalars. A function <math|A:V\<times\>V\<rightarrow\>\<bbb-R\>> is called
+    a <dfn|bilinear form> if <math|A<around*|(|\<alpha\>*a+\<beta\>*b,c|)>=\<alpha\>*A<around*|(|a,c|)>+\<beta\>*A<around*|(|b,c|)>>
+    and <math|A<around*|(|a,\<beta\>*b+\<gamma\>*c|)>=\<beta\>*A<around*|(|a,b|)>+\<gamma\>*A<around*|(|a,c|)>>
+    for scalars <math|\<alpha\>>, <math|\<beta\>>, and
+    <math|\<gamma\>\<in\>\<bbb-R\>> and vectors <math|a>, <math|b>, and
+    <math|c\<in\>V>. A bilinear form is called <dfn|positive definite> if
+    <math|A<around*|(|x,x|)>\<gtr\>0>, unless <math|x> is the zero vector.
+    Define a vector space structure on Hilbert space<nbsp><math|H> and show
+    that for <math|u=<around*|(|u<rsub|1>,u<rsub|2>,\<ldots\>|)>> and
+    <math|v=<around*|(|v<rsub|1>,v<rsub|2>,\<ldots\>|)>\<in\>H>,
+    <math|A<around*|(|u,v|)>=<big|sum><rsub|i=1><rsup|\<infty\>>u<rsub|i>*v<rsub|i>>
+    yields a positive definite bilinear form.
+  </exercise>
+
+  <\solution*>
+    Define the zero vector
+
+    <\equation*>
+      0=<around*|(|0,0,\<ldots\>|)>,
+    </equation*>
+
+    the vector addition
+
+    <\equation*>
+      <around*|(|u<rsub|1>,u<rsub|2>,\<ldots\>|)>+<around*|(|v<rsub|1>,v<rsub|2>,\<ldots\>|)>=<around*|(|u<rsub|1>+v<rsub|1>,u<rsub|2>+v<rsub|2>,\<ldots\>|)>,
+    </equation*>
+
+    and the scalar multiplication
+
+    <\equation*>
+      \<alpha\>*<around*|(|u<rsub|1>,u<rsub|2>,\<ldots\>|)>=<around*|(|\<alpha\>*u<rsub|1>,\<alpha\>*u<rsub|2>,\<ldots\>|)>.
+    </equation*>
+
+    We shall prove that the vector space is closed under vector addition and
+    scalar multiplication. The former can be proved by Corollary<nbsp>8.3,
+    and the latter can be proved by showing that for all
+    <math|u=<around*|(|u<rsub|1>,u<rsub|2>,\<ldots\>|)>\<in\>H>,
+    <math|<big|sum><rsub|i=1><rsup|\<infty\>>a*u<rsub|i>=a*<big|sum><rsub|i=1><rsup|\<infty\>>u<rsub|i>>,
+    and thus <math|a*u\<in\>H>.
+
+    Observe that\ 
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|A<around*|(|\<alpha\>*a+\<beta\>*b,c|)>>|<cell|=>|<cell|<big|sum><rsub|i=1><rsup|n><around*|(|\<alpha\>*a<rsub|i>+\<beta\>*b<rsub|i>|)>*c<rsub|i>>>|<row|<cell|>|<cell|=>|<cell|\<alpha\>*<big|sum><rsub|i=1><rsup|n>a<rsub|i>*c<rsub|i>+\<beta\>*<big|sum><rsub|i=1><rsup|n>b<rsub|i>*c<rsub|i>>>|<row|<cell|>|<cell|=>|<cell|\<alpha\>*A<around*|(|a,c|)>+A<around*|(|b,c|)>>>>>
+    </eqnarray*>
+
+    and similarly <math|A<around*|(|a,\<beta\>*b+\<gamma\>*c|)>=\<beta\>*A<around*|(|a,b|)>+\<gamma\>*A<around*|(|a,c|)>>.
+    Therefore, <math|A> is a bilinear form. Also observe that for any
+    non-zero vector<nbsp><math|x>, we have
+    <math|A<around*|(|x,x|)>=<big|sum><rsub|i=1><rsup|n>x<rsub|i><rsup|2>\<gtr\>0>.
+    Therefore, A is positive definite.
+  </solution*>
+
+  <\exercise>
+    Let <math|V> be a vector space with real numbers <math|\<bbb-R\>> as
+    scalars. A <dfn|norm> on <math|V> is a function
+    <math|N:V\<rightarrow\>\<bbb-R\>> such that
+    (i)<nbsp><math|N<around*|(|v|)>\<geqslant\>0> for all <math|v\<in\>V>;
+    (ii)<nbsp><math|N<around*|(|v|)>=0> if and only if <math|v=0>;
+    (iii)<nbsp><math|N<around*|(|u+v|)>\<leqslant\>N<around*|(|u|)>+N<around*|(|v|)>>
+    for all <math|u,v\<in\>V>; (iv)<nbsp><math|N<around*|(|\<alpha\>*v|)>=<around*|\||\<alpha\>|\|>*N<around*|(|v|)>>
+    for all <math|\<alpha\>\<in\>\<bbb-R\>>, <math|v\<in\>V>. Prove that if
+    <math|A> is a positive definite bilinear form on<nbsp><math|V>, then
+    <math|N<around*|(|v|)>=<around*|(|A<around*|(|v,v|)>|)><rsup|1/2>>
+    defines a norm on<nbsp><math|V>.
+  </exercise>
+
+  <\solution*>
+    We shall prove that <math|N> satisfies the four properties of norm.
+
+    <\enumerate-roman>
+      <item>It is obvious that <math|N<around*|(|v|)>=<around*|(|A<around*|(|v,v|)>|)><rsup|1/2>\<geqslant\>0>.
+
+      <item><math|N<around*|(|v|)>=<around*|(|A<around*|(|v,v|)>|)><rsup|1/2>=0>
+      if and only if <math|A<around*|(|v,v|)>=0> if and only if (because
+      <math|A> is positive definite) <math|v=0>.
+
+      <item>When <math|u=0>, it is obvious that the inequality holds, since
+      <math|N<around*|(|u+v|)>=N<around*|(|v|)>=N<around*|(|u|)>+N<around*|(|v|)>>.
+      Suppose that <math|u\<neq\>0>. Let <math|\<lambda\>\<in\>\<bbb-R\>>.
+      From <math|N<around*|(|\<lambda\>*u+v|)><rsup|2>\<geqslant\>0> we
+      obtain
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|N<around*|(|\<lambda\>*u+v|)><rsup|2>>|<cell|=>|<cell|A<around*|(|\<lambda\>*u+v,\<lambda\>*u+v|)>>>|<row|<cell|>|<cell|=>|<cell|\<lambda\><rsup|2>*A<around*|(|u,u|)>+\<lambda\>*<around*|[|A<around*|(|v,u|)>+A<around*|(|u,v|)>|]>+A<around*|(|v,v|)>>>|<row|<cell|>|<cell|\<geqslant\>>|<cell|0.>>>>
+      </eqnarray*>
+
+      It follows that the quadratic equation
+      <math|\<lambda\><rsup|2>*A<around*|(|u,u|)>+\<lambda\>*<around*|[|A<around*|(|v,u|)>+A<around*|(|u,v|)>|]>+A<around*|(|v,v|)>=0>
+      with unknown<nbsp><math|\<lambda\>> has at most one root. Therefore,
+      the determinant
+
+      <\equation*>
+        <around*|[|A<around*|(|v,u|)>+A<around*|(|u,v|)>|]><rsup|2>-4*A<around*|(|u,u|)>*A<around*|(|v,v|)>\<leqslant\>0,
+      </equation*>
+
+      which implies
+
+      <\equation*>
+        A<around*|(|v,u|)>+A<around*|(|u,v|)>\<leqslant\>2*A<around*|(|u,u|)><rsup|1/2>*A<around*|(|v,v|)><rsup|1/2>.
+      </equation*>
+
+      Then, we obtain
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|N<around*|(|u+v|)><rsup|2>>|<cell|=>|<cell|A<around*|(|u,u|)>+A*<around*|(|v,u|)>+A<around*|(|u,v|)>+A<around*|(|v,v|)>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|A<around*|(|u,u|)>+2*A<around*|(|u,u|)><rsup|1/2>*A<around*|(|v,v|)><rsup|1/2>+A<around*|(|v,v|)>>>|<row|<cell|>|<cell|=>|<cell|<around*|[|<inflate|A<around*|(|u,u|)><rsup|1/2>+A<around*|(|v,v|)><rsup|1/2>>|]><rsup|2>>>|<row|<cell|>|<cell|=>|<cell|<around*|[|N<around*|(|u|)>+N<around*|(|v|)>|]><rsup|2>.>>>>
+      </eqnarray*>
+
+      We conclude that <math|N<around*|(|u+v|)>\<leqslant\>N<around*|(|u|)>+N<around*|(|v|)>>
+      for all <math|u,v\<in\>V>.
+
+      <item>Observe that
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|N<around*|(|\<alpha\>*v|)>>|<cell|=>|<cell|<around*|(|A<around*|(|\<alpha\>*v,\<alpha\>*v|)>|)><rsup|1/2>>>|<row|<cell|>|<cell|=>|<cell|<around*|(|\<alpha\><rsup|2>*A<around*|(|v,v|)>|)><rsup|1/2>>>|<row|<cell|>|<cell|=>|<cell|<around*|\||a|\|>*A<around*|(|v,v|)><rsup|1/2>>>|<row|<cell|>|<cell|=>|<cell|<around*|\||a|\|>*N<around*|(|v|)>.>>>>
+      </eqnarray*>
+    </enumerate-roman>
+  </solution*>
+
+  <\exercise>
+    Let <math|N> be a norm on a vector space<nbsp><math|V> as defined in the
+    previous exercise. Set <math|d<around*|(|u,v|)>=N<around*|(|u-v|)>> for
+    <math|u,v\<in\>V>. Prove that <math|<around*|(|V,d|)>> is a metric space.
+    Prove that the following functions are continuous:
+    (i)<nbsp><math|a:V\<times\>V\<rightarrow\>V> defined by
+    <math|a<around*|(|u,v|)>=u+v>; (ii)<nbsp><math|b:V\<rightarrow\>V>
+    defined by <math|b<around*|(|v|)>=-v>;
+    (iii)<nbsp><math|c:R\<times\>V\<rightarrow\>V> defined by
+    <math|c<around*|(|\<alpha\>*v|)>=\<alpha\>*v>.
+  </exercise>
+
+  <\solution*>
+    (Part<nbsp>1.) We shall prove that <math|d> satisfies the definition of
+    the distance function.
+
+    <\enumerate-roman>
+      <item>By property<nbsp>(i) of norm, we have
+      <math|d<around*|(|u,v|)>=N<around*|(|u-v|)>\<geqslant\>0>.
+
+      <item>By property<nbsp>(ii) of norm, we have
+      <math|d<around*|(|u,v|)>=N<around*|(|u-v|)>=0> if and only if
+      <math|u-v=0> if and only if <math|u=v>.
+
+      <item>By property<nbsp>(iv) of norm, we have
+      <math|d<around*|(|u,v|)>=N<around*|(|u-v|)>=N<around*|(|<around*|(|-1|)><around*|(|v-u|)>|)>=<around*|\||-1|\|>*N<around*|(|v-u|)>=N<around*|(|v-u|)>=d<around*|(|v,u|)>>.
+
+      <item>By property<nbsp>(iii) we have
+      <math|N<around*|(|u+v|)>\<leqslant\>N<around*|(|u|)>+N<around*|(|v|)>>.
+      Set <math|u=a-b> and <math|v=b-c> we obtain
+
+      <\equation*>
+        N<around*|(|a-c|)>\<leqslant\>N<around*|(|a-b|)>+N<around*|(|b-c|)>,
+      </equation*>
+
+      which is equivalent to <math|d<around*|(|a,c|)>\<leqslant\>d<around*|(|a,b|)>+d<around*|(|b,c|)>>.
+    </enumerate-roman>
+
+    (Part<nbsp>2.) We shall prove that each of the following functions are
+    continuous.
+
+    <\enumerate-roman>
+      <item>Given <math|\<varepsilon\>\<gtr\>0> and
+      <math|<around*|(|a<rsub|1>,a<rsub|2>|)>\<in\>V\<times\>V>, set
+      <math|\<delta\>=<frac|\<varepsilon\>|2>\<gtr\>0>. Let
+      <math|<around*|(|x<rsub|1>,x<rsub|2>|)>\<in\>V\<times\>V>. Then,
+      whenever <math|d<rsub|V\<times\>V><around*|(|<around*|(|x<rsub|1>,x<rsub|2>|)>,<around*|(|a<rsub|1>,a<rsub|2>|)>|)>\<less\>\<delta\>>,
+      we have <math|d<around*|(|x<rsub|1>,a<rsub|1>|)>\<less\>\<delta\>> and
+      <math|d<around*|(|x<rsub|2>,a<rsub|2>|)>\<less\>\<delta\>>. Therefore,
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|d<around*|(|a<around*|(|x<rsub|1>,x<rsub|2>|)>,a<around*|(|a<rsub|1>,a<rsub|2>|)>|)>>|<cell|=>|<cell|d<around*|(|x<rsub|1>+x<rsub|2>,a<rsub|1>+a<rsub|2>|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|<around*|(|x<rsub|1>+x<rsub|2>|)>-<around*|(|a<rsub|1>+a<rsub|2>|)>|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|<around*|(|x<rsub|1>-a<rsub|1>|)>+<around*|(|x<rsub|2>-a<rsub|2>|)>|)>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|N<around*|(|x<rsub|1>-a<rsub|1>|)>+N<around*|(|x<rsub|2>-a<rsub|2>|)>>>|<row|<cell|>|<cell|=>|<cell|d<around*|(|x<rsub|1>,a<rsub|1>|)>+d<around*|(|x<rsub|2>,a<rsub|2>|)>>>|<row|<cell|>|<cell|\<less\>>|<cell|<frac|\<varepsilon\>|2>+<frac|\<varepsilon\>|2>>>|<row|<cell|>|<cell|=>|<cell|\<varepsilon\>.>>>>
+      </eqnarray*>
+
+      Since <math|<around*|(|a<rsub|1>,a<rsub|2>|)>> is arbitrary, we
+      conclude that <math|a> is continuous.
+
+      <item>Given <math|\<varepsilon\>\<gtr\>0> and <math|a\<in\>V>, set
+      <math|\<delta\>=\<varepsilon\>\<gtr\>0>. Let <math|x\<in\>V>. Then,
+      whenever <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|d<around*|(|b<around*|(|x|)>,b<around*|(|a|)>|)>>|<cell|=>|<cell|d<around*|(|-x,-a|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|<around*|(|-x|)>-<around*|(|-a|)>|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|a-x|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|x-a|)>>>|<row|<cell|>|<cell|=>|<cell|d<around*|(|x,a|)>>>|<row|<cell|>|<cell|\<less\>>|<cell|\<varepsilon\>.>>>>
+      </eqnarray*>
+
+      Since <math|a> is arbitrary, we conclude that <math|b> is continuous.
+
+      <item>Given <math|\<varepsilon\>\<gtr\>0> and <math|a\<in\>V>, set
+      <math|\<delta\>=<frac|\<varepsilon\>|<around*|\||\<alpha\>|\|>>\<gtr\>0>.
+      Let <math|x\<in\>V>. Then, whenever
+      <math|d<around*|(|x,a|)>\<less\>\<delta\>>, we have
+
+      <\eqnarray*>
+        <tformat|<table|<row|<cell|d<around*|(|c<around*|(|x|)>,c<around*|(|a|)>|)>>|<cell|=>|<cell|d<around*|(|\<alpha\>*x,\<alpha\>*a|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|\<alpha\>*x-\<alpha\>*a|)>>>|<row|<cell|>|<cell|=>|<cell|N<around*|(|\<alpha\>*<around*|(|x-a|)>|)>>>|<row|<cell|>|<cell|=>|<cell|<around*|\||\<alpha\>|\|>*N<around*|(|x-a|)>>>|<row|<cell|>|<cell|=>|<cell|<around*|\||\<alpha\>|\|>*d<around*|(|x,a|)>>>|<row|<cell|>|<cell|\<leqslant\>>|<cell|<around*|\||\<alpha\>|\|>\<cdot\><frac|\<varepsilon\>|<around*|\||\<alpha\>|\|>>>>|<row|<cell|>|<cell|=>|<cell|\<varepsilon\>.>>>>
+      </eqnarray*>
+
+      Since <math|a> is arbitrary, we conclude that <math|c> is continuous.
+    </enumerate-roman>
+  </solution*>
 </body>
 
 <\initial>
@@ -4121,6 +4328,7 @@
     <associate|auto-18|<tuple|2.6|33>>
     <associate|auto-19|<tuple|2.7|36>>
     <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-20|<tuple|2.8|39>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
     <associate|auto-5|<tuple|1.4|4>>
@@ -4219,6 +4427,10 @@
       <with|par-left|<quote|1tab>|2.7<space|2spc>Subspaces and equivalence of
       metric spaces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-19>>
+
+      <with|par-left|<quote|1tab>|2.8<space|2spc>An infinite dimensional
+      Euclidean space <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-20>>
     </associate>
   </collection>
 </auxiliary>
