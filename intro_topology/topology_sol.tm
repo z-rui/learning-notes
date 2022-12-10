@@ -98,6 +98,18 @@
     <with|par-left|1tab|2.8<space|2spc>An infinite dimensional Euclidean
     space <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-20>>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Topological
+    Spaces> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-21><vspace|0.5fn>
+
+    <with|par-left|1tab|3.1<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-22>>
+
+    <with|par-left|1tab|3.2<space|2spc>Topological spaces
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-23>>
   </table-of-contents>
 
   <section|Theory of Sets>
@@ -4142,7 +4154,7 @@
     Therefore, <math|A> is a bilinear form. Also observe that for any
     non-zero vector<nbsp><math|x>, we have
     <math|A<around*|(|x,x|)>=<big|sum><rsub|i=1><rsup|n>x<rsub|i><rsup|2>\<gtr\>0>.
-    Therefore, A is positive definite.
+    Therefore, <math|A> is positive definite.
   </solution*>
 
   <\exercise>
@@ -4290,6 +4302,184 @@
       Since <math|a> is arbitrary, we conclude that <math|c> is continuous.
     </enumerate-roman>
   </solution*>
+
+  <section|Topological Spaces>
+
+  <subsection|Introduction>
+
+  <subsection|Topological spaces>
+
+  <\exercise>
+    Let <math|<around*|(|X,<with|font|Euler|I>|)>> be a topological space
+    that is metrizable. Prove that for each pair <math|a,b> of distinct
+    points of<nbsp><math|X>, there are open sets <math|O<rsub|a>> and
+    <math|O<rsub|b>> containing <math|a> and <math|b> respectively, such that
+    <math|O<rsub|a>\<cap\>O<rsub|b>=\<varnothing\>>. Prove that the
+    topological space of Example<nbsp>7 is not metrizable.
+  </exercise>
+
+  <\note*>
+    The topological space in Example<nbsp>7 is
+    <math|<around*|(|Z,<with|font|Euler|I>|)>>, where <math|Z> is the set of
+    positive integers and <math|<with|font|Euler|I>=<around*|{|\<varnothing\>,O<rsub|1>,O<rsub|2>,\<ldots\>,O<rsub|n>,\<ldots\>|}>>,
+    where <math|O<rsub|n>=<around*|{|n,n+1,n+2,\<ldots\>|}>>.
+  </note*>
+
+  <\solution*>
+    (Part<nbsp>1.) Because <math|<around*|(|X,<with|font|Euler|I>|)>> is
+    metrizable, there is a distance function
+    <math|d:X\<times\>X\<rightarrow\>\<bbb-R\>> such that
+    <math|<around*|(|X,d|)>> is a metric space. Let
+    <math|\<delta\>=d<around*|(|a,b|)>>. Then, <math|\<delta\>\<gtr\>0> since
+    <math|a> and <math|b> are distinct. Let
+    <math|O<rsub|a>=B<around*|(|a;\<delta\>/2|)>> and
+    <math|O<rsub|b>=B<around*|(|b;\<delta\>/2|)>>. Since <math|O<rsub|a>>,
+    <math|O<rsub|b>> are open in <math|<around*|(|X,d|)>>, they are also open
+    in <math|<around*|(|X,<with|font|Euler|I>|)>>. Furthermore,
+    <math|O<rsub|a>\<cap\>O<rsub|b>=\<varnothing\>>, for if
+    <math|x\<in\>O<rsub|a>\<cap\>O<rsub|b>>, we obtain the contradiction
+    <math|\<delta\>=d<around*|(|a,b|)>\<leqslant\>d<around*|(|a,x|)>+d<around*|(|b,x|)>\<less\>\<delta\>>.
+
+    (Part<nbsp>2.) Assume that <math|<around*|(|Z,d|)>> is metrizable. Let
+    distinct points <math|a,b\<in\>Z>. Then, there are open sets
+    <math|O<rsub|a>> and <math|O<rsub|b>> containing <math|a> and <math|b>
+    respectively, such that <math|O<rsub|a>\<cap\>O<rsub|b>=\<varnothing\>>.
+    However, let <math|c=max<around*|{|a,b|}>> and by definition
+    of<nbsp><math|O<rsub|n>> we have <math|c\<in\>O<rsub|a>\<cap\>O<rsub|b>>.
+    Contradiction! Therefore, the assumption is false;
+    <math|<around*|(|Z,d|)>> is not metrizable.
+  </solution*>
+
+  <\exercise>
+    Prove that for each set<nbsp><math|X>, the topological space
+    <math|<around*|(|X,2<rsup|X>|)>> is metrizable.
+    [<with|font-shape|italic|Hint>: See Exercise<nbsp>2, Chapter<nbsp>2,
+    Section<nbsp>6.]
+  </exercise>
+
+  <\solution*>
+    Define <math|d:X\<times\>X\<rightarrow\>\<bbb-R\>> by
+    <math|d<around*|(|x,x|)>=0> and <math|d<around*|(|x,y|)>=1> for
+    <math|x\<neq\>y>. Then, by Exercise<nbsp>2 in Chapter<nbsp>2,
+    Section<nbsp>6, each subset of <math|X> is open. This means that the
+    metric space <math|<around*|(|X,d|)>> gives rise to the topological space
+    <math|<around*|(|X,2<rsup|X>|)>>. Therefore,
+    <math|<around*|(|X,2<rsup|X>|)>> is metrizable.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|\<bbb-R\><rsup|n>,d|)>> and
+    <math|<around*|(|\<bbb-R\><rsup|n>,d<rprime|'>|)>> be defined as in
+    Chapter<nbsp>2 so that for <math|x=<around*|(|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|n>|)>>
+    and <math|y=<around*|(|y<rsub|1>,y<rsub|2>,\<ldots\>,y<rsub|n>|)>\<in\>\<bbb-R\><rsup|n>>,
+
+    <\eqnarray*>
+      <tformat|<table|<row|<cell|d<around*|(|x,y|)>>|<cell|=>|<cell|max<rsub|1\<leqslant\>i\<leqslant\>n>
+      <around*|{|<around*|\||x<rsub|i>-y<rsub|i>|\|>|}>,>>|<row|<cell|d<rprime|'><around*|(|x,y|)>>|<cell|=>|<cell|<around*|(|<big|sum><rsub|i=1><rsup|n><around*|(|x<rsub|i>-y<rsub|i>|)><rsup|2>|)><rsup|1/2>.>>>>
+    </eqnarray*>
+
+    Prove that the two metric spaces <math|<around*|(|\<bbb-R\><rsup|n>,d|)><infix-and><around*|(|\<bbb-R\><rsup|n>,d<rprime|'>|)>>
+    give rise to the same topological space.
+  </exercise>
+
+  <\solution*>
+    It suffices to show that every open set in
+    <math|<around*|(|\<bbb-R\><rsup|n>,d|)>> is also open in
+    <math|<around*|(|\<bbb-R\><rsup|n>,d<rprime|'>|)>>, and vice-versa.
+
+    Recall that, by Corollary<nbsp>7.9 in Chapter<nbsp>2,
+    <math|<around*|(|\<bbb-R\><rsup|n>,d|)>> and
+    <math|<around*|(|\<bbb-R\><rsup|n>,d<rprime|'>|)>> are topologically
+    equivalent, and the equivalence is defined by the identity mapping:
+    <math|i:\<bbb-R\><rsup|n>\<rightarrow\>\<bbb-R\><rsup|n>>. In
+    topologically equivalent metric spaces, an open set in one metric space
+    maps to an open set in another metric space. Let <math|O> be an open set
+    in <math|<around*|(|\<bbb-R\><rsup|n>,d|)>>. By Theorem<nbsp>7.10 in
+    Chapter<nbsp>2, <math|i<around*|(|O|)>=O> is open in
+    <math|<around*|(|\<bbb-R\><rsup|n>,d<rprime|'>|)>>. The argument for the
+    reverse direction is similar.
+  </solution*>
+
+  <\remark*>
+    Maybe that is why \Ptopologically equivalent\Q is named as such.
+  </remark*>
+
+  <\exercise>
+    Let <math|<around*|(|X,<with|font|Euler|I>|)>> be a topological space.
+    Prove that <math|\<varnothing\>>, <math|X> are closed sets, that a finite
+    union of closed sets is a closed set, and that an arbitrary intersection
+    of closed sets is a closed set.
+  </exercise>
+
+  <\solution*>
+    <math|\<varnothing\>>, <math|X> are closed sets because the complments
+    <math|\<complement\><around*|(|\<varnothing\>|)>=X> and
+    <math|\<complement\><around*|(|X|)>=\<varnothing\>> are open sets.
+
+    Let <math|F<rsub|1>,F<rsub|2>,\<ldots\>,F<rsub|n>> be closed sets. Then
+    <math|\<complement\><around*|(|F<rsub|i>|)>> is open for
+    each<nbsp><math|i=1,2,\<ldots\>,n>. It follows that
+    <math|\<complement\><around*|(|<big|cup><rsub|i=1><rsup|n>F<rsub|i>|)>=<big|cap><rsub|i=1><rsup|n>\<complement\><around*|(|F<rsub|i>|)>>,
+    being an finite intersection of open sets, is open. Therefore,
+    <math|<big|cup><rsub|i=1><rsup|n>F<rsub|i>> is closed.
+  </solution*>
+
+  <\exercise>
+    Let <math|<around*|(|X,<with|font|Euler|I>|)>> be a topological space
+    that is metrizable. Prove that each neighborhood<nbsp><math|N> of a point
+    <math|a\<in\>X> contains a neighborhood<nbsp><math|V> of<nbsp><math|a>
+    such that <math|V> is a closed set.
+  </exercise>
+
+  <\solution*>
+    Because <math|<around*|(|X,<with|font|Euler|I>|)>> is metrizable, there
+    is a distance function <math|d:X\<times\>X\<rightarrow\>\<bbb-R\>> such
+    that <math|<around*|(|X,d|)>> is a metric space. Since <math|N> is a
+    neighborhood of<nbsp><math|a> in <math|<around*|(|X,<with|font|Euler|I>|)>>,
+    it is also a neighborhood in <math|<around*|(|X,d|)>>. Therefore, there
+    is an open ball <math|B<around*|(|a;\<delta\>|)>\<subset\>N> where
+    <math|\<delta\>\<gtr\>0>. Let <math|V=<wide|B|\<bar\>><around*|(|a;\<delta\>/2|)>>.
+    It is easy to see that\ 
+
+    <\equation*>
+      B<around*|(|a;\<delta\>/2|)>\<subset\>V\<subset\>B<around*|(|a;\<delta\>|)>\<subset\>N.
+    </equation*>
+
+    Therefore, <math|V> is a neighborhood of<nbsp><math|a>. To prove that
+    <math|V> is closed, it suffices to show that
+    <math|\<complement\><around*|(|V|)>> is open. Let
+    <math|x\<in\>\<complement\><around*|(|V|)>> and
+    <math|\<delta\><rprime|'>=d<around*|(|x,a|)>>. Then,
+    <math|\<delta\><rprime|'>\<gtr\>\<delta\>>. Let
+    <math|U=B<around*|(|x;\<delta\><rprime|'>-\<delta\>|)>>. Then, for each
+    <math|y\<in\>U>, we have <math|d<around*|(|x,y|)>\<less\>\<delta\><rprime|'>-\<delta\>>.
+    It follows that\ 
+
+    <\equation*>
+      \<delta\><rprime|'>=d<around*|(|x,a|)>\<leqslant\>d<around*|(|x,y|)>+d<around*|(|y,a|)>\<less\>\<delta\><rprime|'>-\<delta\>+d<around*|(|y,a|)>,
+    </equation*>
+
+    which implies <math|d<around*|(|y,a|)>\<gtr\>\<delta\>>, and thus
+    <math|y\<in\>\<complement\><around*|(|V|)>>. Therefore,
+    <math|\<complement\><around*|(|V|)>> \ is a neighborhood
+    of<nbsp><math|x>. Because <math|x> is arbitrary,
+    <math|\<complement\><around*|(|V|)>> is a open.
+  </solution*>
+
+  <\exercise>
+    Prove that in a discrete topological space, each subset is simultaneously
+    open and closed.
+  </exercise>
+
+  <\solution*>
+    Let <math|<around*|(|X,<with|font|Euler|I>|)>> be a discrete topological
+    space. Then, <math|<with|font|Euler|I>=2<rsup|X>>. Let
+    <math|S\<subset\>X>. Then, since <math|2<rsup|X>> contains all subsets
+    of<nbsp><math|X>, we have <math|S\<in\><with|font|Euler|I>>. Therefore,
+    <math|S> is open. Furthermore, the same argument also applies to
+    <math|\<complement\><around*|(|S|)>>: we obtain that
+    <math|\<complement\><around*|(|S|)>> is open and thus <math|S> is closed.
+  </solution*>
 </body>
 
 <\initial>
@@ -4329,6 +4519,9 @@
     <associate|auto-19|<tuple|2.7|36>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-20|<tuple|2.8|39>>
+    <associate|auto-21|<tuple|3|42>>
+    <associate|auto-22|<tuple|3.1|42>>
+    <associate|auto-23|<tuple|3.2|42>>
     <associate|auto-3|<tuple|1.2|1>>
     <associate|auto-4|<tuple|1.3|2>>
     <associate|auto-5|<tuple|1.4|4>>
@@ -4431,6 +4624,18 @@
       <with|par-left|<quote|1tab>|2.8<space|2spc>An infinite dimensional
       Euclidean space <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-20>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Topological
+      Spaces> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-21><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|3.1<space|2spc>Introduction
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-22>>
+
+      <with|par-left|<quote|1tab>|3.2<space|2spc>Topological spaces
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-23>>
     </associate>
   </collection>
 </auxiliary>
